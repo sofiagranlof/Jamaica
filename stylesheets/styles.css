@@ -13,7 +13,7 @@ body {
 .current {
 	color: #ff5500;
 }
-#contact,
+#login,
 #about,
 #cakes {
 	width: 60%
@@ -21,35 +21,35 @@ body {
 	padding: 3%;
 }
 
-#contact input[type="radio"] {
+#login input[type="radio"] {
 	height: .7em;
 	width: .7em;
 }
-#contact legend {
+#login legend {
 	font-size: 2em;
 	background-color: #333333;
 	padding: 0 .2em;
 }
-#contact input {
+#login input {
 	border-radius: .5em;
 	padding-left: .5em;
 	margin-bottom: .7em;
 }
-#contact select,
-#contact textarea {
+#login select,
+#login textarea {
 	margin-bottom: .7em;
 }
-#contact input,
-#contact label,
-#contact select,
-#contact textarea,
-#contact .radioheader {
+#login input,
+#login label,
+#login select,
+#login textarea,
+#login .radioheader {
 	font-size: 1em;							
 }
-#contact textarea {
+#login textarea {
 	width: 100%;
 }
-#contact input[type="submit"] {
+#login input[type="submit"] {
 	float: right;
 	padding: .1em;
 	margin-top: .7em;
@@ -66,7 +66,7 @@ nav a {
 nav a:hover {
 	color: #ffffff;
 }
-#contact fieldset { 
+#login fieldset { 
 	border: 1px solid #dddddd;	
 	border-radius: 1em;
 	padding: 1em;
