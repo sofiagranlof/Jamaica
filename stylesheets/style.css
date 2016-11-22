@@ -15,16 +15,15 @@ body {
 }
 #login,
 #about,
-#cakes {
-	width: 60%
-	margin: 0 auto;
-	padding: 3%;
-}
+
+
+
 
 #login input[type="radio"] {
 	height: .7em;
 	width: .7em;
 }
+
 #login legend {
 	font-size: 2em;
 	background-color: #333333;
@@ -201,3 +200,20 @@ main {
 	height: 2em;
 }
 						
+						
+
+#leftbox {
+    float: left; 
+    width: 250px; 
+    height: 250px; 
+    margin: 5px; 
+    border: 3px solid blue; 
+}
+
+#rightbox {
+    float: left; 
+    width: 250px; 
+    height: 250px; 
+    margin: 5px; 
+    border: 3px solid green; 
+}						
