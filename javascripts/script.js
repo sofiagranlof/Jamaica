@@ -79,3 +79,14 @@ function rotateBanner() {
 function indexPageLoaded(){
     window.setInterval(rotateBanner, 3000);
 }
+
+$(document).ready(function() {
+
+	
+	$('.panel-button').on('click', function () {
+        //$('#myDiv').toggle();
+        var panelId = $(this).attr('data-panelid');
+        $('#' + panelId).toggle();
+    });
+});
+
