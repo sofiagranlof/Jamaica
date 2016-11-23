@@ -8,62 +8,42 @@
 	</head>
 	<body>
 	<header>
-		<div id="headerWrapper">
-			<div class="Languages">
-				<h3>Languages Link</h3>
-				<p>Flags with pictures</p>
-				<a href="" class="button">Link to languages or somthn...</a>
-				<a href="#" class="button">languageButton</a>
-			</div>
-			
-			<div class="timer">
-				<h3>Timer(will be textarea or like)</h3>
+		<nav>
+			<ul class="grandparent">
+				<li><a href="login.html">
+						<button class="panel-button" data-panelid="item1">Login page</button>
+					</a>
+				</li>
+				<li><a href="#">Language</a></li>
+				<li>
+					<button class="panel-button" data-panelid="item1">Menu</button>
 
-			</div>
-			
-			<div class="dropdown">
-				<button onclick="myFunction()" class="dropbtn">DROPDOWN MENU</button>
-				<div id="myDropdown" class="dropdown-content">
-					<a href="login.html">Login page</a>
-					<a href="#">Admin page</a>
-					<a href="#">Link 3</a>
-					<a href="">Link</a>
-					<a href="#">Link</a>
-					<a href="#">Link</a>
-				</div>
-			</div>
-		</div>
+					<ul class="sub-nav"  id="item1" style="display: none">
+						<li><a href="#">Check balance</a></li>
+						<li><a href="#">Iou</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Admin</a></li>
+					</ul>	
+				</li>
+			</ul>
+		</nav>
 	</header>
 	
-	
-		<div id="beverageWrapper">
-			<div class="aBeverage">
-				<h3>Beverage1</h3>
-				<img src="leffe.png" width="150" height="150" alt="image of the beverage">
-				<p><strong>Drag and drop to the well</strong></p>
-				<p>Pris: 998kr</p>
-				<a href="" class="button">drag and drop fixed here somewhere<a>
-			</div>
-			
-			<div class="aBeverage">
-				<h3>Beverage2</h3>
-				<img src="leffe.png" width="150" height="150"  alt="image of the beverage">
-				<p><strong>Drag and drop to the well</strong></p>
-				<p>Pris: 998kr</p>
-				<a href="" class="button">drag and drop fixed here somewhere<a>
-			</div>
-			
-			
-			<div id="leftbox" ondrop="dropped(event)" ondragover="allowDrop(event)">
-				I dare you to drag an image in me! 
-			</div>
-			<div id="rightbox">
-				<img id="leffe" src="leffe.png" draggable="true" ondragstart="drag(event)">
-			</div>
-			
+	<div id="beverageWrapper" ondrop="dropped(event)" ondragover="allowDrop(event)">
+		<div class="aBeverage">
+			<img id="leffe" width="100px" height="100px" src="leffe.png" draggable="true" ondragstart="drag(event)">
 		</div>
+		<div class="aBeverage">
+			<img id="drink2" width="100px" height="100px" src="drink2.png" draggable="true" ondragstart="drag(event)">
+		</div>
+		
+	</div>
 	
-	<script type="text/javascript" src="jquery-3.1.1.js"></script>
+	<div class="beverageArea" ondrop="dropped(event)" ondragover="allowDrop(event)">
+		Drag beverage here! 
+	</div>
+	
+	<script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="javascripts/script.js"></script>
 
 </html>
