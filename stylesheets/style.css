@@ -61,62 +61,40 @@ nav ul ul li a {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 img {
 	text-align: center; 
 }
-#login,
-#about,
 
-
-
-
-
-
-#login input[type="radio"] {
-	height: .7em;
-	width: .7em;
+.centerFieldset {
+    text-align: center;
 }
+.centerFieldset fieldset{
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 #login legend {
 	font-size: 2em;
 	background-color: #333333;
 	padding: 0 .2em;
+    
 }
 #login input {
 	border-radius: .5em;
 	padding-left: .5em;
 	margin-bottom: .7em;
 }
-#login select,
-#login textarea {
-	margin-bottom: .7em;
-}
+
 #login input,
-#login label,
-#login select,
-#login textarea,
-#login .radioheader {
+#login label {
 	font-size: 1em;							
 }
-#login textarea {
-	width: 100%;
-}
+
 #login input[type="submit"] {
-	float: right;
-	padding: .1em;
-	margin-top: .7em;
+	padding: .3em;
+	margin-top: .9em;
 }
 nav a.current {
 	color: #ff550;
@@ -132,10 +110,11 @@ nav a:hover {
 }
 #login fieldset { 
 	border: 1px solid #dddddd;	
-	border-radius: 1em;
-	padding: 1em;
-	
+	border-radius: .5em;
+	padding: .5em;
+    margin: 0 auto;
 }
+
 nav ul {
 	padding-top: .5em;
 	text-align: center;
@@ -172,24 +151,6 @@ html, body {
 	background: url("../img/banners/1.jpg") no-repeat left center;
 	background-size: cover;
 }				
-#locations span.pin {
-	height: 2em;
-	width: 2em;
-	background: url("../img/grey-pin.png") no-repeat center top;
-	background-size: 100% 100%;
-	margin: .1 auto;
-	display: block;
-}
-#locations div:hover span.pin {
-	background-image: url("../img/red-pin.png");
-}
-#locations div {
-	width: 24.8%;
-	float: left;
-}
-#locations div:last-child {
-	border-right: none;
-}
 
 #logotype {
 	position: absolute;
@@ -245,24 +206,6 @@ main {
 		right: .2em;
 	}
 }
-#cakes figure {
-	width: 30%;
-	padding: 1.5%;
-	float: left;
-	text-align: center;
-    margin: 2em;
-}
-#cakes figure img {
-	width: 70%;
-	border: .3em solid #ffffff;
-}
-#cakes figcaption {
-	padding-top: .2em;
-	font-weight: bold;
-	font-size: .8em;
-	height: 2em;
-}
-
 
 #leftbox {
     float: left; 
