@@ -1,4 +1,5 @@
 
+
 function allowDrop(ev) {
     ev.preventDefault(); 
 }
@@ -14,35 +15,6 @@ function dropped(ev) {
 
 }
 
-function addCakes() {
-	var	page = document.getElementById('cakes'),
-		fig, img, cap, caption,
-		imgArr = [
-			'almond_fudge_avocado_cake.jpg',						'carrot_cake.jpg',
-			'chocolate_brownie.jpg',
-			'cranberry_coffee_pie.jpg',
-			'gluten-free_vanilla_cake.jpg',
-			'lemon_blueberry_cupcakes.jpg',
-			'raspberry_pie.jpg',
-			'red_cake.jpg',
-			'rosemary_semolina_cake.jpg'
-		];
-
-        imgArr.forEach(function(fileName) {								
-            caption = capitalise(fileName.split('.')[0]);
-			fig = document.createElement('figure');
-			img = document.createElement('img');
-			cap = document.createElement('figcaption');
-		
-			img.setAttribute('src', 'img/cakes/' + fileName);
-			img.setAttribute('alt', caption);
-			img.setAttribute('title', caption);
-		    cap.appendChild(document.createTextNode(caption))
-			fig.appendChild(img);
-            fig.appendChild(cap);
-            page.appendChild(fig);
-        });
-}
 function capitalise(txt) {
 		var arr = txt.split('_'),
 			capTxt = '';
@@ -55,30 +27,6 @@ function capitalise(txt) {
 		});
 		return capTxt;
 }
-function docLoaded(fn) {
-		if (document.readyState !== 'loading'){
-			fn();
-		} else {
-			document.addEventListener('DOMContentLoaded', fn);
-		}
-}
-function cakePageLoaded(){
-	addCakes();
-}
-function rotateBanner() {
-		var	banner = document.getElementById('banner'),
-			style = window.getComputedStyle(banner, null),
-			path = style.backgroundImage.split('.')[0],
-			imgNr;
-	
-		imgNr = parseInt(path[path.length-1]);
-		imgNr = (imgNr === 5) ? 1 : imgNr + 1;
-	
-		banner.style.backgroundImage = 'url("img/banners/'+imgNr+'.jpg")';
-}
-function indexPageLoaded(){
-    window.setInterval(rotateBanner, 3000);
-}
 
 $(document).ready(function() {
 
@@ -89,4 +37,132 @@ $(document).ready(function() {
         $('#' + panelId).toggle();
     });
 });
+
+
+
+/**********************/
+/* Here starts the API*/
+/**********************/
+
+
+function usr(responseString){
+    var json = JSON.parse(responseString)
+    var payload = json.payload
+    
+    var uname = payload[0].first_name
+    var ucredit = payload[0].assets
+    document.getElementById("uname").innerHTML = 'Username: ' + uname; 
+   
+    var intcred = parseInt(ucredit);
+    if(intcred<0){
+       ucredit = '<font color=red>' + ucredit + '</font>'
+    }
+    
+     document.getElementById("ucredit").innerHTML = 'Credit: ' + ucredit;
+    
+}
+
+//USERALL
+function usrall(responseString){
+    var json = JSON.parse(responseString);
+    var payload = json.payload;
+    for (var i = 0; i < payload.length; i++){
+      var row = document.getElementById("mytable").insertRow(i+1);
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+      document.getElementById("mytable").rows[i+1].cells[0].innerHTML = payload[i].first_name
+      document.getElementById("mytable").rows[i+1].cells[1].innerHTML = payload[i].last_name
+      document.getElementById("mytable").rows[i+1].cells[2].innerHTML = payload[i].email
+      document.getElementById("mytable").rows[i+1].cells[3].innerHTML = payload[i].phone
+    }
+}
+
+function loadUsers(api) {
+    api.fetchUsers(usrall)
+}
+//USERALL
+
+//INVENTORY
+function allinventory(responseString){
+    var json = JSON.parse(responseString);
+    var payload = json.payload;
+    
+    var beerlist = ["193002","195202","192003","165903","133603",
+                    "1152803","152503","167903","163203","160903",
+                    "1137903","122203","183502","182402","171903",
+                    "667102","207504","1210502","721801","651201"];
+    
+     for (var i = 0; i < 4; i++){
+      var row = document.getElementById("drinktable").insertRow(i);
+        for (var k = 0; k<5; k++){
+            row.insertCell();
+            
+            //Hämta beer
+            var beerindex = 0;
+            for (beerindex = 0; beerindex < payload.length;beerindex++){
+                if(payload[beerindex].beer_id == beerlist[i*5+k]){
+                    break;
+                }
+            }
+            
+            
+            
+  // document.getElementById("drinktable").rows[i].cells[k].innerHTML = responseString;
+   // break;
+            
+            
+            document.getElementById("drinktable").rows[i].cells[k].innerHTML =
+                '<div class="aBeverage"><img id=' + payload[beerindex].beer_id + ' width="70px" height="150px"src=Pictures/' + payload[beerindex].beer_id + '.png draggable="true"ondragstart="drag(event)"><br>' + payload[beerindex].namn + '<br>' + payload[beerindex].namn2 + '<br> Price: ' + payload[beerindex].price + '</div>'
+                
+                
+                //"<img src=" + payload[i*5+k].beer_id + ".png><br>" + //payload[i*5+k].namn + "<br> Price: " + payload[i*5+k].price 
+            	
+        }
+    }
+    
+    
+    /*for (var i = 0; i < 4; i++){
+      var row = document.getElementById("drinktable").insertRow(i);
+        for (var k = 0; k<5; k++){
+            row.insertCell();
+            document.getElementById("drinktable").rows[i].cells[k].innerHTML =
+                '<div class="aBeverage"><img id=' + payload[i*5+k].beer_id + ' width="100px" height="100px"src=' + payload[i*5+k].beer_id + '.png draggable="true"ondragstart="drag(event)"><br> Price: ' + payload[i*5+k].price + '</div>'
+                
+                
+                //"<img src=" + payload[i*5+k].beer_id + ".png><br>" + //payload[i*5+k].namn + "<br> Price: " + payload[i*5+k].price 
+            	
+        }
+    */
+}
+
+function loadInventory() {
+    var api = new APIConnect();
+    api.setUser('ervtod', 'ervtod');
+    api.fetchInventoryGet(allinventory);
+}
+//INVENTORY
+
+function fn(){
+    var api = new APIConnect();
+    //btn = document.getElementById('yourbuttonID');
+
+    api.setUser('ervtod', 'ervtod');
+    //btn.addEventListener('click', function() { loadUsers(api) });
+   
+    //api.fetchIOU(usr);
+        
+}
+
+
+
+function docLoaded(fn) {
+    if (document.readyState !== 'loading') {
+        fn();
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+
 
