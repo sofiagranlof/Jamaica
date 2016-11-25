@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Jamaican In</title>
+    <title>Login page</title>
     <meta charset="utf-8"/>
     <link href="stylesheets/style.css" rel="stylesheet">
+    <script src="javascripts/api.js"></script>
+    <script src="javascripts/script.js"></script>
+     
   </head>
   <body>
   <header>
@@ -13,17 +16,37 @@
     <main>
       <section id="login">
 	      <form action= "index.html">
+            
            <div class="centerFieldset">
           <fieldset>
              <legend>Welcome to Jamaican In</legend>
                <p>
-                 <input type="text" id="username" name="fn" required="required" placeholder="Enter UserName">
+                 <input type="text" id="username" name="fn" required="" placeholder="Username" value="">
+              </p>
+              <p>
+                   <input type="text" id="password" name="fn" required="" placeholder="Password" value="">
                </p>
-		  <input type="submit" value="Enter">
+		  <input type="submit" onclick="loadInventory();" id='yourbuttonID' value="Enter">
+              
 		  </fieldset>
               </div>
 		  </form>
+          <script language="javascript" type="text/javascript">
+              function check(){
+                  
+                var username = document.getElementById('username');
+                if(username.value == 'A'){
+                   alert("RÄtt")
+                   }
+                   else{
+                    alert("You have entered the wrong username")
+                   }
+            }
+          </script>
 	 </section>
     </main>
   </body>
 </html>
+
+//payload[0].msg = 'Not enough credientials' är en usr om man kallar user-get-all.
+//payload[0].msg = 'Username not found', 'Incorrect pasword', 'Wrong type of argument'
