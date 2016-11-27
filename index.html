@@ -13,32 +13,18 @@
 	<header>
 		<nav>
 			<ul class="grandparent">
-				<li><a href="login.html">
-						<button class="panel-button" data-panelid="item1">Login page</button>
-					</a>
-				</li>
-				<li><a href="#">Language</a></li>
-				<li>
-					<button class="panel-button" data-panelid="item1">Menu</button>
-
-					<ul class="sub-nav"  id="item1" style="display: none">
-						<li><a href="#">Check balance</a></li>
-						<li><a href="#">Iou</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Admin</a></li>
-					</ul>	
-				</li>
+				<li><a href="index.html" class="current">Buy Beverage</a></li>
+				<li><a href="history.html">View History</a></li>
+				<li><a href="login.html">Logout</a></li>
 			</ul>
 		</nav>
 	</header>
-        <table id="drinktable">
-            </table>  
     	<div id="beverageWrapper" ondrop="dropped(event)" ondragover="allowDrop(event)">
-
+            <table id="drinktable">
+            </table>  
 	</div>
-	
 	<div class="beverageArea" ondrop="dropped(event)" ondragover="allowDrop(event)">
-		Drag beverage here! 
+        <img src="shoppingcart.png" alt="HTML Icon" style="width:236px;height:213px;" >
 	</div>
 	
 	<script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
