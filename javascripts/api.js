@@ -2,7 +2,6 @@ function APIConnect() {
     var     baseURL = 'http://pub.jamaica-inn.net/fpdb/api.php',
             username = '',
             password = '';
-    
     function constructURL(params) { 
         var url = baseURL + '?' + 'username=' + username + '&' + 'password=' + password;
         for(var key in params){
@@ -42,5 +41,9 @@ function APIConnect() {
     this.fetchInventoryGet = function(callback) {
         var url = constructURL({action: 'inventory_get'})
         request(url, callback);
+    }
+    this.fetchPurchasesGet = function(callback){
+        var url = constructURL({action:'purchases_get'})
+        request(url,callback);
     }
 }
