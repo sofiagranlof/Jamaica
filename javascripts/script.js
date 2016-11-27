@@ -1,5 +1,4 @@
 
-
 function allowDrop(ev) {
     ev.preventDefault(); 
 }
@@ -62,6 +61,8 @@ function usr(responseString){
     
 }
 
+
+
 //USERALL
 function usrall(responseString){
     var json = JSON.parse(responseString);
@@ -92,7 +93,7 @@ function allinventory(responseString){
     var beerlist = ["193002","195202","192003","165903","133603",
                     "1152803","152503","167903","163203","160903",
                     "1137903","122203","183502","182402","171903",
-                    "667102","207504","1210502","721801","651201"];
+                    "667102","207504","223301","721801","651201"];
     
      for (var i = 0; i < 4; i++){
       var row = document.getElementById("drinktable").insertRow(i);
@@ -139,16 +140,43 @@ function allinventory(responseString){
 
 function loadInventory() {
     var api = new APIConnect();
-    api.setUser('ervtod', 'ervtod');
+    api.setUser('jora', 'benfau');
     api.fetchInventoryGet(allinventory);
 }
+
 //INVENTORY
+
+//PURCHASES USER 
+
+function purchases(responseString){
+    var json = JSON.parse(responseString);
+    var payload = json.payload;
+    for (var i = 0; i < payload.length; i++){
+      var row = document.getElementById("drinktable").insertRow(i+1);
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+      document.getElementById("drinktable").rows[i+1].cells[0].innerHTML = payload[i].namn + ' ' + payload[i].namn2
+      document.getElementById("drinktable").rows[i+1].cells[1].innerHTML = payload[i].price
+      document.getElementById("drinktable").rows[i+1].cells[2].innerHTML = payload[i].timestamp
+    }
+}
+
+
+function loadpurchasesget() {
+    var api = new APIConnect();
+    api.setUser('jorass', 'jorass');
+    api.fetchPurchasesGet(purchases);
+    
+}
+
+//PURCHASES USER 
 
 function fn(){
     var api = new APIConnect();
     //btn = document.getElementById('yourbuttonID');
 
-    api.setUser('ervtod', 'ervtod');
+    api.setUser('benfau', 'benfau');
     //btn.addEventListener('click', function() { loadUsers(api) });
    
     //api.fetchIOU(usr);
@@ -158,6 +186,7 @@ function fn(){
 
 
 function docLoaded(fn) {
+   
     if (document.readyState !== 'loading') {
         fn();
     } else {
