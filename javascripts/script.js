@@ -1,4 +1,13 @@
 
+
+
+//johans changes 29 November: 
+// - All functions called from the HTML files have been moved to the end of this file 
+// - "usrall" worked on for admin page (not finished) 
+// - jQuery document.ready moved to separate file because script.js needs to come before the HTML files calls to the script (e.g. loadUserInfo()), and jQueryScript needs to come after. async / defer didn't work on Opera for some reason
+
+
+//(index) The below 3 functions are used by drag and drop
 function allowDrop(ev) {
     ev.preventDefault(); 
 }
@@ -14,6 +23,8 @@ function dropped(ev) {
 
 }
 
+
+// ...
 function capitalise(txt) {
 		var arr = txt.split('_'),
 			capTxt = '';
@@ -27,16 +38,8 @@ function capitalise(txt) {
 		return capTxt;
 }
 
-$(document).ready(function() {
 
-	
-	$('.panel-button').on('click', function () {
-        //$('#myDiv').toggle();
-        var panelId = $(this).attr('data-panelid');
-        $('#' + panelId).toggle();
-    });
-});
-
+//the document ready jQuery that was here has been moved to a separate jquery document. 
 
 
 /**********************/
@@ -57,35 +60,50 @@ function usr(responseString){
        ucredit = '<font color=red>' + ucredit + '</font>'
     }
     
-     document.getElementById("ucredit").innerHTML = 'Credit: ' + ucredit;
-    
+    document.getElementById("ucredit").innerHTML = 'Credit: ' + ucredit;
 }
 
 
 
-//USERALL
-function usrall(responseString){
+
+
+
+
+//(admin) USERALL this function loads all the users into rows and creates an edit button for each user (the button is not connected to the row here but in the jQuery document) 
+function usrall(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
-    for (var i = 0; i < payload.length; i++){
-      var row = document.getElementById("mytable").insertRow(i+1);
+    for (var i = 0; i < payload.length; i++) {
+
+        var myN = i.toString();
+
+        var row = document.getElementById("usersTable").insertRow(i + 1);
+
         row.insertCell();
         row.insertCell();
         row.insertCell();
         row.insertCell();
-      document.getElementById("mytable").rows[i+1].cells[0].innerHTML = payload[i].first_name
-      document.getElementById("mytable").rows[i+1].cells[1].innerHTML = payload[i].last_name
-      document.getElementById("mytable").rows[i+1].cells[2].innerHTML = payload[i].email
-      document.getElementById("mytable").rows[i+1].cells[3].innerHTML = payload[i].phone
+        row.insertCell();
+
+        document.getElementById("usersTable").rows[i + 1].cells[0].innerHTML = payload[i].first_name;
+        document.getElementById("usersTable").rows[i + 1].cells[1].innerHTML = payload[i].last_name;
+        document.getElementById("usersTable").rows[i + 1].cells[2].innerHTML = payload[i].email;
+        document.getElementById("usersTable").rows[i + 1].cells[3].innerHTML = payload[i].phone;
+        document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = "";
+
+        //this creates a button in the rows cell 4 with the index as id
+        var myEditButton = $('<button id =' + i + '>Edit</button>');
+        $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[4]);
+
+        //The button connection to the row can perhaps be moved here. 
     }
 }
 
-function loadUsers(api) {
-    api.fetchUsers(usrall)
-}
-//USERALL
 
-//INVENTORY
+
+
+
+//INVENTORY 
 function allinventory(responseString){
     var json = JSON.parse(responseString);
     var payload = json.payload;
@@ -138,11 +156,7 @@ function allinventory(responseString){
     */
 }
 
-function loadInventory() {
-    var api = new APIConnect();
-    api.setUser('jora', 'benfau');
-    api.fetchInventoryGet(allinventory);
-}
+
 
 //INVENTORY
 
@@ -163,12 +177,6 @@ function purchases(responseString){
 }
 
 
-function loadpurchasesget() {
-    var api = new APIConnect();
-    api.setUser('jorass', 'jorass');
-    api.fetchPurchasesGet(purchases);
-    
-}
 
 //PURCHASES USER 
 
@@ -195,3 +203,38 @@ function docLoaded(fn) {
 }
 
 
+
+
+
+//HTMLs function calls ---------------------------------------------------------
+
+//perhaps only one "var api = new APIConnect();" is necessary
+
+//Index: to load the bevarages
+function loadInventory() {
+    var api = new APIConnect();
+    api.setUser('jora', 'benfau');
+    api.fetchInventoryGet(allinventory);
+}
+
+
+//History: This function is loaded from history page
+function loadpurchasesget() {
+    var api = new APIConnect();
+    api.setUser('jorass', 'jorass');
+    api.fetchPurchasesGet(purchases);
+} 
+
+//Admin: This function is loaded from admin page
+function loadUserInfo() {
+    var api = new APIConnect();
+    api.setUser('jorass', 'jorass');
+    api.fetchUsers(usrall);
+}
+
+
+
+//... probably the same as above
+function loadUsers(api) {
+    api.fetchUsers(usrall)
+}
