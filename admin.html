@@ -1,49 +1,41 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Index page</title>
-		<meta charset="utf-8"/>
-		<link href="stylesheets/style.css" rel="stylesheet">
-	</head>
-	<body>
-	<header>
-		<nav>
-			<ul class="grandparent">
-				<li><a href="login.html">
-						<button class="panel-button" data-panelid="item1">Login page</button>
-					</a>
-				</li>
-				<li><a href="#">Language</a></li>
-				<li>
-					<button class="panel-button" data-panelid="item1">Menu</button>
+<head>
+    <title>Admin page</title>
+    <meta charset="utf-8" />
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
+    
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="grandparent">
+                <li><a href="" class="current">User Info</a></li>
+                <li><a href="">Beverages</a></li>
+                <li><a href="login.html">Go Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="usersSection">
+        <table style="width: 60%" id="usersTable" data-panelid="JJJJJ">
+            <tr>
+                <th>First Name </th>
+                <th>Last Name</th>
+                <th>email</th>
+                <th>phone</th>
+                <th id="EditUser">Edit</th>
+            </tr>
+        </table>
+    </section>
+    
+    <!-- Placed at bottom because it didnt work otherwise -->
+    <script src="javascripts/script.js"></script>
+    <script src="javascripts/api.js"></script>
+    <script>loadUserInfo();</script> 
+    <script src="javascripts/jQueryScript.js"></script>
 
-					<ul class="sub-nav"  id="item1" style="display: none">
-						<li><a href="#">Check balance</a></li>
-						<li><a href="#">Iou</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Admin</a></li>
-					</ul>	
-				</li>
-			</ul>
-		</nav>
-	</header>
-	
-	<div id="beverageWrapper" ondrop="dropped(event)" ondragover="allowDrop(event)">
-		<div class="aBeverage">
-			<img id="leffe" width="100px" height="100px" src="leffe.png" draggable="true" ondragstart="drag(event)">
-		</div>
-		<div class="aBeverage">
-			<img id="drink2" width="100px" height="100px" src="drink2.png" draggable="true" ondragstart="drag(event)">
-		</div>
-		
-	</div>
-	
-	<div class="beverageArea" ondrop="dropped(event)" ondragover="allowDrop(event)">
-		Drag beverage here! 
-	</div>
-	
-	<script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
-    <script type="text/javascript" src="javascripts/script.js"></script>
-
+</body>
 </html>
