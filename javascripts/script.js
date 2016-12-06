@@ -147,11 +147,9 @@ function admin(responseString){
         window.localStorage.setItem("admin", "TRUE");
         var btn1 = document.getElementById("admin");
             btn1.style.display = "block";
-        alert('isadmin');
     }
     else{
         window.localStorage.setItem("admin", "FALSE");
-        alert('notadmin')
     }
    
 }
