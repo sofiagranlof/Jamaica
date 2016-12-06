@@ -16,6 +16,7 @@
 				<li><a href="index.html" class="current">Buy Beverage</a></li>
 				<li><a href="history.html">View History</a></li>
 				<li><a href="login.html">Logout</a></li>
+		                <li class="hide" id="adminl"><a href="admin.html">ADMIN STUFF</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -29,6 +30,15 @@
 	
 	<script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="javascripts/script.js"></script>
+		
+    <script>
+    //This is for the admin button
+        if(1==1){
+            var btn = document.getElementById("adminl");
+            btn.style.display = "block";
+        }
+    </script>
+    </body>
     </body>
 </html>
 
