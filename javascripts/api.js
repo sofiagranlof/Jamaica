@@ -1,7 +1,8 @@
 function APIConnect() {
     var     baseURL = 'http://pub.jamaica-inn.net/fpdb/api.php',
-            username = '',
-            password = '';
+            username = window.localStorage.getItem("username"),
+            password = window.localStorage.getItem("password");
+
     function constructURL(params) { 
         var url = baseURL + '?' + 'username=' + username + '&' + 'password=' + password;
         for(var key in params){
