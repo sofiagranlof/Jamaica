@@ -24,8 +24,14 @@
             <table id="drinktable">
             </table>  
 	</div>
-	<div class="beverageArea" ondrop="dropped(event)" ondragover="allowDrop(event)">
-        <img src="shoppingcart.png" alt="HTML Icon" style="width:236px;height:213px;" >
+	<div class="beverageArea" ondrop="dropcopy(event)" ondragover="allowDrop(event)">
+	<header>
+            YOUR CART
+            <nav>
+            <ul class = "cart">
+                </ul>
+                </nav>
+        </header> 
 	</div>
 	
 	<script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
@@ -38,7 +44,6 @@
             btn.style.display = "block";
         }
     </script>
-    </body>
     </body>
 </html>
 
