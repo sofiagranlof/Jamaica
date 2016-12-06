@@ -26,27 +26,20 @@
               <p>
                    <input type="text" id="password" name="fn" required="" placeholder="Password" value="">
                </p>
-		  <input type="submit" onclick="alert('hi')" id='yourbuttonID' value="Enter">
+		  <input type="button" onclick="check();" id='yourbuttonID' value="Enter">
               
 		  </fieldset>
               </div>
 		  </form>
           <script language="javascript" type="text/javascript">
               function check(){
-                  
-                var username = document.getElementById('username');
-                if(username.value == 'A'){
-                   alert("RÄtt")
-                   }
-                   else{
-                    alert("You have entered the wrong username")
-                   }
+                var username = document.getElementById('username');  
+                var password = document.getElementById('password');
+                                        
+                testlogin(username.value, password.value);
             }
           </script>
 	 </section>
     </main>
   </body>
 </html>
-
-<!---//payload[0].msg = 'Not enough credientials' är en usr om man kallar user-get-all.
-//payload[0].msg = 'Username not found', 'Incorrect pasword', 'Wrong type of argument'--->
