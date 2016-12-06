@@ -113,7 +113,53 @@ function usrall(responseString) {
     }
 }
 
+//Function determand if connection is correct
+function login(responseString){
+    var json = JSON.parse(responseString)
+   
+    if(json.type == 'iou_get'){
+        window.localStorage.setItem("login", "TRUE");
+        window.location = 'index.html';
 
+    }
+    else{
+        window.localStorage.setItem("login", "FALSE");
+        alert('Failed to login');
+    }
+   
+}
+
+//Function that puts the username and password in the local storage
+function testlogin(username, password){
+    var api = new APIConnect();
+    api.setUser(username, password);
+    
+    window.localStorage.setItem("username", username)
+    window.localStorage.setItem("password", password)                
+    window.localStorage.setItem("login", "FALSE");
+    api.fetchIOU(login); 
+}
+
+//Function that checks if it is an admin
+function admin(responseString){
+    var json = JSON.parse(responseString)
+    if(json.type == 'user_get_all'){
+        window.localStorage.setItem("admin", "TRUE");
+        var btn1 = document.getElementById("admin");
+            btn1.style.display = "block";
+        alert('isadmin');
+    }
+    else{
+        window.localStorage.setItem("admin", "FALSE");
+        alert('notadmin')
+    }
+   
+}
+
+function testadmin(){
+    var api = new APIConnect();    
+    api.fetchUsers(admin);
+}
 
 
 
@@ -198,7 +244,7 @@ function fn(){
     var api = new APIConnect();
     //btn = document.getElementById('yourbuttonID');
 
-    api.setUser('benfau', 'benfau');
+    //api.setUser('benfau', 'benfau');
     //btn.addEventListener('click', function() { loadUsers(api) });
    
     //api.fetchIOU(usr);
@@ -227,7 +273,6 @@ function docLoaded(fn) {
 //Index: to load the bevarages
 function loadInventory() {
     var api = new APIConnect();
-    api.setUser('jora', 'benfau');
     api.fetchInventoryGet(allinventory);
 }
 
@@ -235,17 +280,14 @@ function loadInventory() {
 //History: This function is loaded from history page
 function loadpurchasesget() {
     var api = new APIConnect();
-    api.setUser('jorass', 'jorass');
     api.fetchPurchasesGet(purchases);
 } 
 
 //Admin: This function is loaded from admin page
 function loadUserInfo() {
     var api = new APIConnect();
-    api.setUser('jorass', 'jorass');
     api.fetchUsers(usrall);
 }
-
 
 
 //... probably the same as above
