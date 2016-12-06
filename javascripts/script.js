@@ -16,6 +16,20 @@ function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id); 
 }
 
+function dropcopy(ev)
+{
+    ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+var copyimg = document.getElementById(data); //document.createElement("img");
+var original = document.getElementById(data);
+copyimg.src = original.src;
+ev.target.appendChild(copyimg);
+//ev.target.appendChild(original);
+//ev.target.appendChild(document.getElementById(data));
+console.log(copyimg);
+    
+    
+}
 function dropped(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
