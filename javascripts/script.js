@@ -21,6 +21,9 @@ function dropcopy(ev)
                     ev.preventDefault();
                     var data=ev.dataTransfer.getData("Text");
                     var copyimg = document.createElement("img");
+                    //copyimg.setAttribute("src", "images/hydrangeas.jpg");
+                    copyimg.setAttribute("height", "150");
+                    copyimg.setAttribute("width", "75");
                     var original = document.getElementById(data);
                     copyimg.src = original.src;
                     ev.target.appendChild(copyimg);
