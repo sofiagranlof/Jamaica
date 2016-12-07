@@ -5,7 +5,7 @@ body {
 	background-color: #333333;
 	background: url(http://blog.hostbaby.com/backgrounds/bg_lightwoodfloor.jpg) ;
 	color:  #dddddd;
-	min-width: 800px;
+	/*min-width: 800px;*/ /* <---do we even need this?*/
 	margin: 0 auto; 
 	
 }
@@ -88,6 +88,9 @@ img {
     display: inline;
     margin-left: auto;
     margin-right: auto;
+}
+#usersTable {
+    width: 60%;
 }
 
 #history table {
@@ -296,4 +299,23 @@ main {
     text-decoration: none;
     cursor: pointer;
 }
+@media only screen and (max-width: 41rem){
+    #beverageWrapper {
+        border: 5px solid black; 
+	   position: absolute; 
+        top: 100px;
+        left: 50px;
+	   height: 950px; 
+	   width: 770px; 
+
+    }
+    body {
+        max-width: 41rem;
+    }
+    header {
+        font-size: 1rem;
+    }
+    #usersTable {
+        width: 100%;
+    }
 
