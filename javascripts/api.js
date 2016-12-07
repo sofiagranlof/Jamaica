@@ -45,5 +45,11 @@ function APIConnect() {
     this.fetchPurchasesGet = function(callback){
         var url = constructURL({action:'purchases_get'})
         request(url,callback);
-    }
+    };
+    this.fetchPurchasesGetAllAdmin = function (callback) {
+        var url = constructURL({ action: 'purchases_get_all' })
+        request(url, callback);
+    };
+    
+    
 }
