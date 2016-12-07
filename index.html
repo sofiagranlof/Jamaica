@@ -1,42 +1,64 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Admin page</title>
-    <meta charset="utf-8" />
-    <link href="stylesheets/style.css" rel="stylesheet">
-    <script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
-    
-    
-</head>
-<body>
-    <header>
-        <nav>
-            <ul class="grandparent">
-                <li><a href="" class="current">User Info</a></li>
-                <li><a href="">Beverages</a></li>
-                <li><a href="login.html">Go Back</a></li>
-                <li><a href="index.html">Back to buy</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="usersSection">
-        <table style="width: 60%" id="usersTable" data-panelid="JJJJJ">
-            <tr>
-                <th>First Name </th>
-                <th>Last Name</th>
-                <th>email</th>
-                <th>phone</th>
-                <th id="EditUser">Edit</th>
-            </tr>
-        </table>
-    </section>
-    
-    <!-- Placed at bottom because it didnt work otherwise -->
-    <script src="javascripts/script.js"></script>
-    <script src="javascripts/api.js"></script>
-    <script>loadUserInfo();</script> 
-    <script src="javascripts/jQueryScript.js"></script>
-
-</body>
+	<head>
+		<title>Index page</title>
+		<meta charset="utf-8"/>
+		<link href="stylesheets/style.css" rel="stylesheet">
+        <script src="javascripts/api.js"></script>
+        <script src="javascripts/script.js"></script>
+		<!-- More JS at bottom (because async/defer doesnt work on Opera) -->
+        <script>testadmin();</script>
+        <script>loadInventory();</script> 
+	</head>
+	<body>
+	<header>
+		<nav>
+			<ul class="grandparent">
+				<li><a href="index.html" class="current">Buy Beverage</a></li>
+				<li><a href="history.html">View History</a></li>
+				<li><a href="#" onclick="logout();">Logout</a></li>
+		       <li class="hide" id="admin"><a href="admin.html">ADMIN STUFF</a></li>
+			</ul>
+		</nav>
+	</header>
+    	<div id="beverageWrapper">
+            <!--<div id="beverageWrapper" ondrop="dropped(event)" ondragover="allowDrop(event)">-->
+            <table id="drinktable">
+                <!-- Here a script with loaded drinks is going in from script.js-->
+            </table>
+        </div>
+	<!-- allowed drop is not defined here -->
+        <div class="beverageArea">
+            <!--<div class="beverageArea" ondrop="dropcopy(event)" ondragover="allowDrop(event)">-->
+            <header id="myH">
+                <h4>YOUR CART</h4>
+                <ul class="cart">
+                    <li>hjhjhjjh</li>
+                    <!-- Here a script with the dragged bottle info is going in -->
+                </ul>
+            </header>
+        </div>
+	
+	<script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="javascripts/script.js"></script>
+    <script language="javascript" type="text/javascript">
+              function logout(){
+                window.localStorage.removeItem("login");
+                window.localStorage.removeItem("pasword");
+                window.localStorage.removeItem("username");
+                window.location = 'login.html';
+            }
+    </script>
+    <script>
+    //This is for the admin button
+        if(1==1){
+            //var btn = document.getElementById("adminl");
+            //btn.style.display = "block";
+        }
+    </script>
+	<script>loadInventory();</script>
+        <script src="javascripts/jQueryScript.js"></script>
+    </body>
 </html>
+
