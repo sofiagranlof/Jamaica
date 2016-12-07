@@ -287,32 +287,26 @@ function docLoaded(fn) {
 //Index: to load the bevarages
 function loadInventory() {
     var api = new APIConnect();
-    api.setUser('jora', 'benfau');
     api.fetchInventoryGet(allinventory);
 }
 
 //Admin->UserInfo
 function loadUserInfo() {
     var api = new APIConnect();
-    api.setUser('jorass', 'jorass');
     api.fetchUsers(usrall);
 }
 
 //History: This function is loaded from history page
 function loadPurchasesGet() {
     var api = new APIConnect();
-    api.setUser('jorass', 'jorass');
     api.fetchPurchasesGet(purchases);
 }
 
 //Admin: this loads purchases_get_all for the admin
 function loadPurchasesGetAllAdmin() {
     var api = new APIConnect();
-    api.setUser('jorass', 'jorass');
     api.fetchPurchasesGetAllAdmin(purchasesGetAllAdmin);
-
 }
-
 
 function allowDrop(ev) {
     ev.preventDefault();
