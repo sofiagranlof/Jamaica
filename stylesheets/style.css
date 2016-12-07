@@ -301,7 +301,7 @@ main {
 }
 @media only screen and (max-width: 41rem){
     #beverageWrapper {
-        border: 5px solid black; 
+        border: 5px solid white; 
 	   position: absolute; 
         top: 100px;
         left: 50px;
