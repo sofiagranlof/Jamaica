@@ -24,7 +24,6 @@ function APIConnect() {
         xhr.send();
         
     }
-    
     this.setUser = function(un, pw) {
         username = un;
         password = pw;
