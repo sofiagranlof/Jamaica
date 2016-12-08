@@ -299,6 +299,10 @@ main {
     text-decoration: none;
     cursor: pointer;
 }
+.menu-button{
+    display:none;
+}
+
 @media only screen and (max-width: 924px){
     #beverageWrapper {
         border: 5px solid white; 
