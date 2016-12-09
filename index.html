@@ -22,23 +22,57 @@
 			</ul>
 		</nav>
 	</header>
-    	<div id="beverageWrapper">
-            <!--<div id="beverageWrapper" ondrop="dropped(event)" ondragover="allowDrop(event)">-->
+    	 <div id="beverageWrapper">
+            <div id="beverageWrapper" ondrop="dropped(event)" ondragover="allowDrop(event)">
             <table id="drinktable">
+                
                 <!-- Here a script with loaded drinks is going in from script.js-->
             </table>
         </div>
 	<!-- allowed drop is not defined here -->
-        <div class="beverageArea">
-            <!--<div class="beverageArea" ondrop="dropcopy(event)" ondragover="allowDrop(event)">-->
-            <header id="myH">
-                <h4>YOUR CART</h4>
-                <ul class="cart">
-                    <li>hjhjhjjh</li>
-                    <!-- Here a script with the dragged bottle info is going in -->
-                </ul>
-            </header>
+        <!--<div class="beverageArea" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)">-->
+            <div class="beverageArea" ondrop="dropcopy(event)" ondragover="allowDrop(event)">
+                <header id="myH">
+                    <h4>YOUR CART</h4>
+                </header>
+                <table id="cart" class="cartClass">
+                    <tr>
+                        <th>Name</th>
+                        <th>#</th>
+                        <th>+</th>
+                        <th>-</th>
+                        <th>Price</th>
+                    </tr>
+                    <!--<tr id="ggg">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>-->
+
+
+                        <!--<div id="dropArea" >
+    </div>-->
+                        <!-- Here a script with the dragged bottle info is going in -->
+                    <tr>
+                        <td>.................................................</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="lastRow">
+                        <td>SUM TOTAL:..........................</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td id = "sumTotal"></td>
+                    </tr>
+                </table>
+            </div>
+        <div class="block">
+            <asp:Image ID="Image9" AlternateText="10/12/2008 - Retina" Width=81 Height=84 ImageUrl="~/uploads/ImageModifier/retina.jpg" runat=server />
         </div>
+ </div>
 	
 	<script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="javascripts/script.js"></script>
