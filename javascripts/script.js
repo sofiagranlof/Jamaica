@@ -190,9 +190,6 @@ function allinventory(responseString) {
                     payload[beerindex].namn2 + '<br>' +
                     'Price: ' + payload[beerindex].price +
                 '</div>' +
-                '<div>' +
-                    '<div id=' + newId + '>' + "uniqueInfo" + newId + '</div>' + 
-                '</div>' + 
             '</div>'; 
             //"<img src=" + payload[i*5+k].beer_id + ".png><br>" + //payload[i*5+k].namn + "<br> Price: " + payload[i*5+k].price 
 
