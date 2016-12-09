@@ -177,17 +177,23 @@ function allinventory(responseString) {
             // document.getElementById("drinktable").rows[i].cells[k].innerHTML = responseString;
             // break;
 
+            var newId = payload[beerindex].beer_id + "info"; 
+            
             //here is where the HTML is changed to accomodate the beverage: 
             document.getElementById("drinktable").rows[i].cells[k].innerHTML =
-            '<div class="aBeverage">' + 
-                '<img id=' + payload[beerindex].beer_id + ' width="140px" height="300px"src=Pictures/' + payload[beerindex].beer_id + '.png draggable="true"ondragstart="drag(event)">' + '<br>' +
-                '<div id="bottleCartInfo">' +
+            '<div class="beverage">' +
+                '<img id=' + payload[beerindex].beer_id + ' width="70px" height="150px" src=Pictures/' + payload[beerindex].beer_id + '.png draggable="true"ondragstart="drag(event)">' + '<br>' +
+                //'<div id="bottleCartInfoFromRow' + i + 'Cell' + k + '"">' +
+                 '<div id=' + newId + '>' +
+                //'<div id="bottleCartInfoFrom' + payload[beerindex].beer_id + '>' +
                     payload[beerindex].namn + '<br>' +
                     payload[beerindex].namn2 + '<br>' +
                     'Price: ' + payload[beerindex].price +
-                '</div>'
-            '</div>'
-
+                '</div>' +
+                '<div>' +
+                    '<div id=' + newId + '>' + "uniqueInfo" + newId + '</div>' + 
+                '</div>' + 
+            '</div>'; 
             //"<img src=" + payload[i*5+k].beer_id + ".png><br>" + //payload[i*5+k].namn + "<br> Price: " + payload[i*5+k].price 
 
         }
