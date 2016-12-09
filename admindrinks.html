@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin page</title>
+    <meta charset="utf-8" />
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
+    
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="grandparent">
+                <li><a href="adminuserinfo.html" >Users</a></li>
+                <li><a href="adminuserbalances.html" >Balances</a></li>
+                <li><a href="" class="current">Beverages</a></li>
+                <li><a href="login.html">Logout</a></li>
+                <li><a href="index.html">I want to Buy</a></li>
+				<li></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--<div id="popup">
+
+    </div>-->
+	
+
+    
+	 <!-- Trigger/Open The Modal -->
+    <!--<button id="myBtn">Open Modal</button>-->
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <form method="post" id="myForm" action="demoform.asp">
+                <span class="close">×</span>
+                <!-- a user unique 10 row jQueryScript will load in here at document.ready-->
+            </form>
+        </div>
+    </div>
+	
+    <section id="usersSection">
+        <table style="width: 60%" id="usersTable" data-panelid="JJJJJ">
+            <tr>
+                <th>Name</th>
+                <th>SBL Price</th>
+                <th>Pub Price</th>
+                <th>Price</th>
+                <th>Count</th>
+                <th id="EditBalance">Edit</th>
+            </tr>
+        </table>
+    </section>
+    
+    <!-- Placed at bottom because it didnt work otherwise -->
+    <script src="javascripts/script.js"></script>
+    <script src="javascripts/api.js"></script>
+    <!--<script>loadUserInfo();</script>--> 
+    <script>loadAllDrinks()</script>
+    <script></script>
+    <script src="javascripts/jQueryScript.js"></script>
+
+</body>
+</html>
