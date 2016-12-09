@@ -205,8 +205,8 @@ nav a.current {
 }
 nav a {
 	/*front-size: 2em;
-	color: #dddddd;
-	text-decoration: none;*/
+	color: #dddddd;*/
+	text-decoration: none;
 	padding: 0 .5em 0 .5em;
 }
 
@@ -240,7 +240,6 @@ header {
 	font-family: serif;
 	font-style: italic;
 	background-color: none;
-	text-transform: ;
     	font-size: 25px;
 }
 
