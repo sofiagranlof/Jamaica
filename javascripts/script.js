@@ -159,11 +159,11 @@ function allinventory(responseString) {
 
     //these two loops create a matrix whose cells contain an img and info about each beer. 
     //for every row
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 7; i++) {
         var row = document.getElementById("drinktable").insertRow(i);
 
         //for every cell: 
-        for (var k = 0; k < 7; k++) {
+        for (var k = 0; k < 3; k++) {
             row.insertCell();
 
             //Hämta beer. Laddning fr[n databasen h'nder h''r
