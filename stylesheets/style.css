@@ -3,7 +3,8 @@
  
 body { 
 	background-color: #333333;
-	background: url(http://blog.hostbaby.com/backgrounds/bg_lightwoodfloor.jpg) ;
+	background: url(https://s-media-cache-ak0.pinimg.com/originals/d0/ee/89/d0ee8955ee5b5f5ebe2f818e64177495.png);
+	background-repeat: repeat;
 	color:  #dddddd;
 	/*min-width: 800px;*/ /* <---do we even need this?*/
 	margin: 0 auto; 
@@ -103,27 +104,60 @@ img {
 }
 #history table tr:nth-child(even) {background-color: #757575}
 
+#login {
+	margin-top: 4em; 
+}
+
 #login legend {
 	font-size: 2em;
-	background-color: #333333;
-	padding: 0 .2em;
+	font-family: serif;
+	font-style: italic;
+	color: black; /*Mathias*/
+	background-color: none;/*Mathias*/
+	padding: 0.5em;
     
 }
 #login input {
-	border-radius: .5em;
+	/*border-radius: .5em;*/
 	padding-left: .5em;
 	margin-bottom: .7em;
 }
 
 #login input,
 #login label {
-	font-size: 1em;							
+	font-size: 1.8em;							
 }
 
 #login input[type="submit"] {
 	padding: .3em;
 	margin-top: .9em;
 }
+
+
+.loginbutton {	/*Mathias*/
+	  display: inline-block;
+	  padding: 10px 10px;
+	  font-size: 5px;
+	  cursor: pointer;
+	  text-align: center;
+	  text-decoration: none;
+	  outline: none;
+	  color: #fff;
+	  background-color: #4CAF50;
+	  border: none;
+	  border-radius: 5px;
+	  box-shadow: 0 5px #888;
+
+}
+.loginbutton:hover {background-color: #3e8e41}
+
+.loginbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+
 nav a.current {
 	color: #ff550;
 }
@@ -137,10 +171,10 @@ nav a:hover {
 	color: #ffffff;
 }
 #login fieldset { 
-	border: 1px solid #dddddd;	
-	border-radius: .5em;
+	border: 1px solid black;	
+	border-radius: .3em;
 	padding: .5em;
-    margin: 0 auto;
+    	margin: 0 auto;
 }
 
 nav ul {
@@ -156,9 +190,9 @@ html, body {
 }									
 
 header {
-	background-color: #444444;
+	background-color: transparent;
 	text-transform: uppercase;
-    font-size: 25px;
+    	font-size: 25px;
 }
 
 main {
