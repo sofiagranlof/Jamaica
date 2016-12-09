@@ -159,17 +159,17 @@ function allinventory(responseString) {
 
     //these two loops create a matrix whose cells contain an img and info about each beer. 
     //for every row
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 3; i++) {
         var row = document.getElementById("drinktable").insertRow(i);
 
         //for every cell: 
-        for (var k = 0; k < 5; k++) {
+        for (var k = 0; k < 7; k++) {
             row.insertCell();
 
             //Hämta beer. Laddning fr[n databasen h'nder h''r
             var beerindex = 0;
             for (beerindex = 0; beerindex < payload.length; beerindex++) {
-                if (payload[beerindex].beer_id == beerlist[i * 5 + k]) {
+                if (payload[beerindex].beer_id == beerlist[i * 3 + k]) {
                     break;
                 }
             }
@@ -180,7 +180,7 @@ function allinventory(responseString) {
             //here is where the HTML is changed to accomodate the beverage: 
             document.getElementById("drinktable").rows[i].cells[k].innerHTML =
             '<div class="aBeverage">' + 
-                '<img id=' + payload[beerindex].beer_id + ' width="70px" height="150px"src=Pictures/' + payload[beerindex].beer_id + '.png draggable="true"ondragstart="drag(event)">' + '<br>' +
+                '<img id=' + payload[beerindex].beer_id + ' width="140px" height="300px"src=Pictures/' + payload[beerindex].beer_id + '.png draggable="true"ondragstart="drag(event)">' + '<br>' +
                 '<div id="bottleCartInfo">' +
                     payload[beerindex].namn + '<br>' +
                     payload[beerindex].namn2 + '<br>' +
