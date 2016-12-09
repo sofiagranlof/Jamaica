@@ -378,3 +378,185 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
+//JOHANS LATEST CHANGE
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function dropcopy(ev) {
+
+    ev.preventDefault(); //makes it droppable
+
+    var idOfBottle = ev.dataTransfer.getData("Text");
+    //var thePic = document.createElement("img");
+    //thePic.setAttribute("id", "Div1");
+
+    //create div inside cart with idOfBottle
+    var myDiv2 = document.createElement("div");
+    myDiv2.id = idOfBottle;
+
+    
+    var myInner = document.getElementById(idOfBottle + "info").innerHTML;
+    myDiv2.innerHTML = myDiv2.innerHTML + myInner;
+    var thePrice = parseSentenceForNumber(myDiv2.innerHTML); 
+    var theText = myDiv2.innerHTML;
+    theText = theText.replace(/[0-9]/g, '');
+    theText = theText.replace('Price', '');
+    theText = theText.replace(/<br>/g, '');
+    //YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES
+    
+
+
+    ////picture perhaps at left side in table
+    
+    //var original = document.getElementById(idOfBottle);
+    //console.log("idOfBottle: " + idOfBottle);
+
+    //thePic.setAttribute("height", "40");
+    //thePic.setAttribute("width", "40");
+    //thePic.src = original.src;
+    //ev.target.appendChild(copyimg);
+    //ev.target.appendChild(myDiv2);
+
+    //create new HTML
+    //if ($('#193002').length) {
+        
+    //}
+
+
+
+    //create handle to table and
+    //calculate number of existing rows: 
+    var table = document.getElementById('cart');
+    var rowCount = table.rows.length - 2; //there are two hard coded rows at the end. 
+    var rowId = rowCount + "row" + idOfBottle; 
+    //var rowId = idOfBottle;
+    console.log("rowId: " + rowId);
+    var tt = $("#cart").attr('id');
+    console.log("tt: " + tt);
+    //check if item has already been added. 
+
+    if ($("#cart").find('#' + rowId + '').length > 0) {
+        alert("Item already exists... BRO ");
+    }
+
+    else {
+        //find where the end of the table is
+        var row = document.createElement("tr");
+        row.id = rowId;
+
+        //there are two rows at the end in the html document
+        $('#cart tr').eq(-2).before(row)
+        row.insertCell();
+        var counterCellVar = row.insertCell(); counterCellVar.id = "counterCell";
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+
+
+        //$(myNewTr).appendTo(document.getElementById('cart'));
+
+        //$('#cart tr:last').before().before("<tr><td>new row</td></tr>");
+
+        
+
+        //$('#cart').append(myNewTr); 
+
+        //var row = table.insertRow(1);
+
+        //var row = document.getElementById("cart").insertRow(-1);
+
+        //row.id = idOfBottle;
+        //var myStr = "";
+        //console.log(idOfBottle);
+
+        //row.insertCell();
+        //row.insertCell();
+        //row.insertCell();
+        //row.insertCell();
+        //row.insertCell();
+
+        console.log("thePrice: " + thePrice); 
+
+        document.getElementById(rowId).cells[0].innerHTML = theText;
+        document.getElementById(rowId).cells[1].innerHTML = 1; //default this is a string
+        document.getElementById(rowId).cells[2].innerHTML = "";
+        document.getElementById(rowId).cells[3].innerHTML = "";
+        document.getElementById(rowId).cells[4].innerHTML = thePrice;
+
+        //build buttons
+        var plusButton = $('<button class ="plusButton" id ="plusUnique">+</button>');
+        $(plusButton).appendTo(document.getElementById(rowId).cells[2]);
+        var minusButton = $('<button class ="minusButton" id ="minusUnique">-</button>');
+        $(minusButton).appendTo(document.getElementById(rowId).cells[3]);
+
+
+    }
+    //calculate total price of added item
+
+
+    //update sum-total
+
+    document.getElementById("lastRow").cells[4].innerHTML = 55555;
+
+}
+
+
+$(document).off().on('click', '.plusButton', function () {
+
+    //in order to get to the correct counter we must first step out of the plus button and then into the innerHTML of the parent id cell[1]
+    var idOfRow = $(this).parent().parent().attr('id');
+    var thisRow = $(this).parent().parent(); //parent is td, grandparent is row
+    //$(thisRow).css('background', 'red');
+    var countAsString = $(thisRow).find("#counterCell").html();
+    var countAsInt = parseInt(countAsString) + 1;
+    console.log("countInt: " + countAsInt);
+
+    $(thisRow).find("#counterCell").html(countAsInt);
+
+    //e.stopImmediatePropagation(); //without this the button clicks twice
+
+    return false;
+});
+
+
+
+//there will be a for loop here
+$(document).on('click', '.minusButton', function () {
+
+    var idOfRow = $(this).parent().parent().attr('id');
+
+    console.log("idOfRow " + idOfRow);
+
+
+    var currentCount = document.getElementById("cart").rows[1].cells[1].innerHTML;
+    currentCount = parseInt(currentCount);
+    if (currentCount < 2) {
+        //parent is td, grandparent is tr
+        $('button.minusButton').parent().parent().css('background', 'yellow');
+        $('#' + idOfRow + '').remove(); 
+    }
+    else {
+        document.getElementById("cart").rows[1].cells[1].innerHTML = currentCount - 1;
+    }
+});
+
+
+
+function parseSentenceForNumber(sentence) {
+    var matches = sentence.match(/(\+|-)?((\d+(\.\d+)?)|(\.\d+))/);
+    return matches && matches[0] || null;
+}
+
+
+
+function dropped(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+
+}
+
+
+
