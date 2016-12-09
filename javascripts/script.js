@@ -210,7 +210,7 @@ function allinventory(responseString) {
 
 
 //(view history?) PURCHASES USER 
-
+/*
 function purchases(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
@@ -225,8 +225,8 @@ function purchases(responseString) {
     }
 }
 
-//(admin) purchasesAllAdmin
-function purchasesGetAllAdmin(responseString) {
+//(admin) purchasesAllAdmin/*
+function getAllUsers(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
     for (var i = 0; i < payload.length; i++) {
@@ -249,6 +249,60 @@ function purchasesGetAllAdmin(responseString) {
         //this creates a button in the rows cell 4 with the index as id
         var myEditButton = $('<button id =' + i + 'editUserButton' + '>Edit</button>');
         $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[4]);
+    }
+}*/
+
+function getAllBalances(responseString) {
+    var json = JSON.parse(responseString);
+    var payload = json.payload;
+    for (var i = 0; i < payload.length; i++) {
+
+        var myN = i.toString();
+        var row = document.getElementById("usersTable").insertRow(i + 1);
+
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+
+        document.getElementById("usersTable").rows[i + 1].cells[0].innerHTML = payload[i].username;
+        document.getElementById("usersTable").rows[i + 1].cells[1].innerHTML = payload[i].first_name;
+        document.getElementById("usersTable").rows[i + 1].cells[2].innerHTML = payload[i].last_name;
+        document.getElementById("usersTable").rows[i + 1].cells[3].innerHTML = payload[i].assets;
+        document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = "";
+
+        //this creates a button in the rows cell 4 with the index as id
+        var myEditButton = $('<button id =' + i + 'editUserButton' + '>Edit</button>');
+        $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[4]);
+    }
+}
+
+function getAllDrinks(responseString) {
+    var json = JSON.parse(responseString);
+    var payload = json.payload;
+    for (var i = 0; i < payload.length; i++) {
+
+        var myN = i.toString();
+        var row = document.getElementById("usersTable").insertRow(i + 1);
+
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+        row.insertCell();
+
+        document.getElementById("usersTable").rows[i + 1].cells[0].innerHTML = (payload[i].namn + " " +     payload[i].namn2);
+        document.getElementById("usersTable").rows[i + 1].cells[1].innerHTML = payload[i].sbl_price;
+        document.getElementById("usersTable").rows[i + 1].cells[2].innerHTML = payload[i].pub_price;
+        document.getElementById("usersTable").rows[i + 1].cells[3].innerHTML = payload[i].count;
+        document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = payload[i].price;
+        document.getElementById("usersTable").rows[i + 1].cells[5].innerHTML = "";
+
+        //this creates a button in the rows cell 4 with the index as id
+        var myEditButton = $('<button id =' + i + 'editUserButton' + '>Edit</button>');
+        $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[5]);
     }
 }
 
@@ -296,6 +350,11 @@ function loadUserInfo() {
     api.fetchUsers(usrall);
 }
 
+function loadAllDrinks() {
+    var api = new APIConnect();
+    api.fetchDrinks(getAllDrinks);
+}
+
 //History: This function is loaded from history page
 function loadPurchasesGet() {
     var api = new APIConnect();
@@ -307,6 +366,13 @@ function loadPurchasesGetAllAdmin() {
     var api = new APIConnect();
     api.fetchPurchasesGetAllAdmin(purchasesGetAllAdmin);
 }
+
+//Admin: this loads the users and their balance
+function loadgetAllBalances() {
+    var api = new APIConnect();
+    api.fetchIOUAll(getAllBalances);
+}
+
 
 function allowDrop(ev) {
     ev.preventDefault();
