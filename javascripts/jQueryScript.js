@@ -148,6 +148,27 @@ $(document).ready(function () {
 }); //document ready
 
 
+//This is where the drop-down menu is created
+$("<select />").appendTo("nav");
+
+// Create default option "Menu"
+$("<option />", {
+   "selected": "selected",
+   "value"   : "",
+   "text"    : "Menu"
+}).appendTo("nav select");
+
+// Populate dropdown with menu items
+$("nav a").each(function() {
+ var el = $(this);
+ $("<option />", {
+     "value"   : el.attr("href"),
+     "text"    : el.text()
+ }).appendTo("nav select");
+});
+$("nav select").change(function() {
+  window.location = $(this).find("option:selected").val();
+}); //End of drop-down menu
 
 
 
