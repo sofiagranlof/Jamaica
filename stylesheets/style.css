@@ -312,29 +312,35 @@ main {
 }
 
 
-/*This is the wrapper for the whole cart*/
+/*This is the wrapper for the whole cart-----------------------------------------------*/
 .beverageArea {
 	text-align: right; 
-    	height: 500px;
+    height: 500px;
 	width: 400px; 
-    	margin: 5px; 
-    	border: 3px solid black; 
+    margin: 5px; 
+    border: 3px solid black; 
  	position: absolute;
 	bottom: 0;
 	right: 0;
 	background: white;
-    	color:red;
-
+    color:red;
+    /*font-size: 1em; */
 }
+
+
+
 
 /*This is the header of the Cart*/
 #myH {
-
+    font-size: 1em; 
     margin-top: -30px; 
-
-
     text-align: start; 
     /*background: white;*/
+}
+
+#cart tr {
+    font-size: 1em; 
+    width: auto; 
 }
 
 .hide{
