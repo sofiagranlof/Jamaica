@@ -34,6 +34,16 @@ function APIConnect() {
         request(url, callback);
     };
     
+    this.fetchDrinks = function(callback) { 
+        var url = constructURL({action: 'inventory_get'})
+        request(url, callback);
+    };
+    
+    this.fetchIOUAll = function(callback) { 
+        var url = constructURL({action: 'iou_get_all'})
+        request(url, callback);
+    };
+    
     this.fetchIOU = function(callback) { 
         var url = constructURL({action: 'iou_get'})
         request(url, callback);
