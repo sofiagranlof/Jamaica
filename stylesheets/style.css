@@ -5,7 +5,8 @@ body {
 	background-color: #333333;
 	background: url(https://s-media-cache-ak0.pinimg.com/originals/d0/ee/89/d0ee8955ee5b5f5ebe2f818e64177495.png);
 	background-repeat: repeat;
-	color:  #dddddd;
+	font-size: 20px;
+	color:  black;
 	margin: 0 auto;
 	max-height: 768; 
 	max-width: 1024;
@@ -386,7 +387,7 @@ main {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 952px){
+@media only screen and (max-width: 840px){
     #beverageWrapper {
         border: 5px solid white; 
 	   position: absolute; 
@@ -397,7 +398,7 @@ main {
 
     }
     body {
-        max-width: 952px;
+        max-width: 840px;
     }
     header {
         font-size: 25px;
