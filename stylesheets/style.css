@@ -343,7 +343,7 @@ main {
 .plusButton {			
 	color: black;
 	font-size: 25px;
-	background-color: green;
+	background-color: lightgreen;
 	opacity: 0.9;
 	width: 40px;
 	height:40px;
@@ -362,6 +362,26 @@ main {
 	height:40px;
 }
 
+#buyButton {			
+	color: black;
+	font-size: 18px;
+	border: none;
+	border-radius: 4px;
+	background-color: lightgreen;
+	opacity: 0.9;
+	width: 60px;
+	height:40px;
+}
+#abortButton {			
+	color: black;
+	font-size: 18px;
+	border: none;
+	border-radius: 4px;
+	background-color: red;
+	opacity: 0.9;
+	width: 60px;
+	height:40px;
+}
 
 /*This is the header of the Cart*/
 #myH {	
