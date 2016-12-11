@@ -109,8 +109,8 @@ var langdict = {
             'sv': '<h4>DIN KUNDVAGN</h4>',
         },
         'sumtotal': {
-            'en': 'SUM TOTAL:..........................',
-            'sv': 'SUMMA:................................. ',
+            'en': 'TOTAL:',
+            'sv': 'SUMMA:',
         }
 
 };
