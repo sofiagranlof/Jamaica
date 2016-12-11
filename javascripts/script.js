@@ -188,7 +188,7 @@ function allinventory(responseString) {
                 //'<div id="bottleCartInfoFrom' + payload[beerindex].beer_id + '>' +
                     payload[beerindex].namn + '<br>' +
                     payload[beerindex].namn2 + '<br>' +
-                    'Price: ' + payload[beerindex].price +
+                    payload[beerindex].price + ' kr'
                 '</div>' +
             '</div>'; 
             //"<img src=" + payload[i*5+k].beer_id + ".png><br>" + //payload[i*5+k].namn + "<br> Price: " + payload[i*5+k].price 
@@ -389,6 +389,8 @@ function drag(ev) {
 
 function dropcopy(ev) {
 
+    $(".beverageArea").css('background','none');	
+	
     ev.preventDefault(); //makes it droppable
 
     var idOfBottle = ev.dataTransfer.getData("Text");
