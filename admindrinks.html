@@ -6,18 +6,18 @@
     <meta charset="utf-8" />
     <link href="stylesheets/style.css" rel="stylesheet">
     <script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
-    
+    <script src="javascripts/language.js"></script>
     
 </head>
 <body>
     <header>
         <nav>
             <ul class="grandparent">
-                <li><a href="adminuserinfo.html" >User Info</a></li>
-                <li><a href="adminuserbalances.html" >User Balances</a></li>
-                <li><a href="admindrinks.html" class="current">Edit Beverages</a></li>
-                <li><a href="index.html">Buy Beverages</a></li>
-		<li><a href="login.html" class="logoffbutton">Log out ⌫ </a></li>    
+                <li><a id="userinfoid"  href="adminuserinfo.html" >User Info</a></li>
+                <li><a id="userbalid" href="adminuserbalances.html" >User Balances</a></li>
+                <li><a id="editbevid" href="admindrinks.html" class="current">Edit Beverages</a></li>
+                <li><a id="buyid" href="index.html">Buy Beverages</a></li>
+		<li><a id="logoutid" href="login.html" class="logoffbutton">Log out ⌫ </a></li>    
 		<li></li>
             </ul>
         </nav>
@@ -45,11 +45,11 @@
     <section id="usersSection">
         <table  id="usersTable" data-panelid="JJJJJ">
             <tr>
-                <th>Name</th>
-                <th>SBL Price</th>
-                <th>Pub Price</th>
-                <th>Price</th>
-                <th>Count</th>
+                <th id="Name">Name</th>
+                <th id="SBLPrice">SBL Price</th>
+                <th id="PubPrice">Pub Price</th>
+                <th id="Price">Price</th>
+                <th id="Count">Count</th>
                 <th id="EditBalance">Edit</th>
             </tr>
         </table>
@@ -60,7 +60,7 @@
     <script src="javascripts/api.js"></script>
     <!--<script>loadUserInfo();</script>--> 
     <script>loadAllDrinks()</script>
-    <script></script>
+    <script>langTranslateAdminDrinks();</script>
     <script src="javascripts/jQueryScript.js"></script>
 
 </body>
