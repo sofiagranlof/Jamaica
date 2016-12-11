@@ -111,8 +111,8 @@ img {
     border: 1px solid black;
     text-align: left;
 }
-#history table tr:nth-child(even) {text-decoration: underline;} 
-#history table tr:nth-child(odd) {background-color: white;}
+/*#history table tr:nth-child(even) {text-decoration: underline;} 
+#history table tr:nth-child(odd) {background-color: white;}*/
 
 #login {
 	margin-top: 4em; 
