@@ -426,6 +426,10 @@ main {
 	align-content: left;
 }
 
+#sumtotal2 {
+	text-align: right;
+}
+
 .hide{
   display:none;  
 }
