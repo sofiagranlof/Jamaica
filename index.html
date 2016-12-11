@@ -32,7 +32,6 @@
             </table>
         </div>
 	<!-- allowed drop is not defined here -->
-        <!--<div class="beverageArea" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)">-->
             <div class="beverageArea" ondrop="dropcopy(event)" ondragover="allowDrop(event)">
                 <header id="myH">
                     <h4>YOUR CART</h4>
@@ -45,17 +44,6 @@
                         <th>-</th>
                         <th id="CartPrice">Price</th>
                     </tr>
-                    <!--<tr id="ggg">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>-->
-
-
-                        <!--<div id="dropArea" >
-    </div>-->
-                        <!-- Here a script with the dragged bottle info is going in -->
                     <tr>
                         <td>.................................................</td>
                         <td></td>
@@ -70,6 +58,10 @@
                         <td id = "sumTotal"></td>
                     </tr>
                 </table>
+		<div id="bottomCart">
+                    <button id="buyButton">Buy</button>
+                    <button id="abortButton">Clear</button>
+                </div>
             </div>
         <div class="block">
             <asp:Image ID="Image9" AlternateText="10/12/2008 - Retina" Width=81 Height=84 ImageUrl="~/uploads/ImageModifier/retina.jpg" runat=server />
