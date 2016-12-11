@@ -7,6 +7,7 @@
         <link href="stylesheets/style.css" rel="stylesheet">
         <script src="javascripts/api.js"></script>
         <script src="javascripts/script.js"></script>
+	<script src="javascripts/language.js"></script>
 	<script>testadmin();</script>    
         <script>loadPurchasesGet();</script>
 	</head>
@@ -14,10 +15,10 @@
 	<header>
 		<nav>
 			<ul>
-				<li><a href="index.html">Buy Beverage</a></li>
-				<li><a href="history.html"class="current">View History</a></li>
-				<li class="hide" id="admin"><a href="adminuserinfo.html">Admin Options</a></li>
-				<li><a href="login.html" class="logoffbutton">Log out ⌫ </a></li>
+				<li><a id="buyid" href="index.html">Buy Beverage</a></li>
+				<li><a id="historyid" href="history.html"class="current">View History</a></li>
+				<li class="hide" id="admin"><a id="adminid" href="adminuserinfo.html">Admin Options</a></li>
+				<li><a id="logoutid" href="login.html" class="logoffbutton">Log out ⌫ </a></li>
 			</ul>
 		</nav>
 	</header>
@@ -25,12 +26,13 @@
             <section id="history">
 	    <table style="width: 100%" id="drinktable">
                 <tr>
-                    <th>Beverage</th>
-                    <th>Price</th>
-                    <th>Date &amp; Time</th>
+                    <th id="beverageid">Beverage</th>
+                    <th id="priceid">Price</th>
+                    <th id="dateid">Date &amp; Time</th>
                 </tr>
             </table> 
             </section>
             </main>	
 	</body>
+	<script>langTranslateHistory();</script>
 </html>
