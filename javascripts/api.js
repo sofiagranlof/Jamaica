@@ -60,6 +60,10 @@ function APIConnect() {
         var url = constructURL({ action: 'purchases_get_all' })
         request(url, callback);
     };
+    this.fetchUserEdit = function (callback) {
+        var url = constructURL({ action: 'user_edit' })
+        request(url, callback);
+    };  
     
     
 }
