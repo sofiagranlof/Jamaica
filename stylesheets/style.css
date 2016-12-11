@@ -171,13 +171,16 @@ img {
 	  background-color: #ff1a1a;
 	  opacity: 0.8;
 	  text-align: right;
+	  position: absolute;				
+	  margin-right: 45px;				
+	  right: 0;	
 	  border-radius: 5px;
 }
 
 /*Usernameimage*/
 #username {
 	background-image: url(http://www.samsyn.is/img/ManSilhouette.png);
-	background-size: 25px 25px;
+	background-size: 30px 30px;
     background-position: 5px 5px; 
     background-repeat: no-repeat;
 }
@@ -185,7 +188,7 @@ img {
 /*Passwordimage*/
 #password {
 	background-image: url(http://www.myiconfinder.com/uploads/iconsets/256-256-9bf01d3a6da700873303e2b4197c3e99-lock.png);
-	background-size: 25px 25px;
+	background-size: 30px 30px;
     background-position: 5px 5px; 
     background-repeat: no-repeat;
 }
@@ -304,6 +307,8 @@ main {
     
 }
 .aBeverage {
+	color: black; 
+	font-weight: bold; 
 	float: left; 
 	display: inline-block;
 	padding: 0.7em;
@@ -315,32 +320,64 @@ main {
 /*This is the wrapper for the whole cart-----------------------------------------------*/
 .beverageArea {
 	text-align: right; 
-    height: 500px;
+   	height: 550px;
 	width: 400px; 
-    margin: 5px; 
-    border: 3px solid black; 
- 	position: absolute;
-	bottom: 0;
+	margin: 5px; 
+	
+ 	border: 2px solid black; 
+	border-collapse: collapse;
+    	border-radius: 5px;
+   	box-shadow: 0px 0px 9px 9px rgba(0,0,0,0.80);		
+ 	position: fixed;				
+ 	bottom: 0;
 	right: 0;
-	background: white;
-    color:red;
-    /*font-size: 1em; */
+	
+	background-image: url(../Pictures/Dragndrop3.png); 
+	background-repeat: no-repeat;		
+	background-position: center;		
+	
+  	color: black;			
+
 }
 
+.plusButton {			
+	color: black;
+	font-size: 25px;
+	background-color: green;
+	opacity: 0.9;
+	width: 40px;
+	height:40px;
+}
 
+.minusButton {			
+	color: black;
+	font-size: 25px;
+	background-color: red;
+	opacity: 0.9;
+	width: 40px;
+	height:40px;
+}
 
 
 /*This is the header of the Cart*/
-#myH {
-    font-size: 1em; 
-    margin-top: -30px; 
-    text-align: start; 
-    /*background: white;*/
+#myH {	
+	margin-top: -20px;		
+	height: 20px;			
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+    	text-align: center;				
+  	text-decoration: underline;		
+ 	color: black;
+  
 }
 
-#cart tr {
-    font-size: 1em; 
-    width: auto; 
+#cart tr td {
+
+    font-size: 20px;
+    text-decoration: bold;
+    width: 100%; 
+    border-collapse: collapse;
 }
 
 .hide{
