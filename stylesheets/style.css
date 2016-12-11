@@ -392,18 +392,23 @@ main {
 	width: 100%;
 	font-size: 20px;
 	font-weight: bold;
-    	text-align: center;				
-  	text-decoration: underline;		
+    	text-align: center;						
  	color: black;
   
 }
 
-#cart tr td {
-
-    font-size: 20px;
-    text-decoration: bold;
-    width: 100%; 
-    border-collapse: collapse;
+#cart {
+        font-size: 20px;
+        text-decoration: bold;
+        width: 100%; 
+   
+        border: 1px solid black;
+  	border-collapse: collapse;
+	border-radius: 2px;
+	border-spacing: 5px;
+	color: black;
+	text-align: left;
+	align-content: left;
 }
 
 .hide{
