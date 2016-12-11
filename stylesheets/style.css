@@ -97,6 +97,7 @@ img {
 }
 #usersTable {
     width: 80%;
+    border-collapse: collapse;
 }
 
 #history table {
