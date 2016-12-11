@@ -71,7 +71,7 @@ function usrall(responseString) {
         document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = "";
 
         //this creates a button in the rows cell 4 with the index as id
-        var myEditButton = $('<button id =' + i + 'editUserButton' + '>Edit</button>');
+        var myEditButton = $('<button id =' + i + 'editUserButton' + '>' + langGetText('edit') + '</button>');
         $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[4]);
     }
 
@@ -276,7 +276,7 @@ function getAllBalances(responseString) {
         document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = "";
 
         //this creates a button in the rows cell 4 with the index as id
-        var myEditButton = $('<button id =' + i + 'editUserButton' + '>Edit</button>');
+        var myEditButton = $('<button id =' + i + 'editUserButton' + '>' + langGetText('edit') + '</button>');
         $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[4]);
     }
 }
@@ -304,7 +304,7 @@ function getAllDrinks(responseString) {
         document.getElementById("usersTable").rows[i + 1].cells[5].innerHTML = "";
 
         //this creates a button in the rows cell 4 with the index as id
-        var myEditButton = $('<button id =' + i + 'editUserButton' + '>Edit</button>');
+        var myEditButton = $('<button id =' + i + 'editUserButton' + '>' + langGetText('edit') + '</button>');
         $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[5]);
     }
 }
