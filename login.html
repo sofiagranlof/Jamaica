@@ -6,12 +6,12 @@
     <link href="stylesheets/style.css" rel="stylesheet">
     <script src="javascripts/api.js"></script>
     <script src="javascripts/script.js"></script>
-     
+    <script src="javascripts/language.js"></script>
   </head>
   <body>
    	<section id = "flags">
-       	 	<input id = "swedish" onclick="change_lang()" type="image" style="width:75px;height:50px;" src="http://cdn.countryflags.com/thumbs/united-kingdom/flag-3d-250.png"/>
-        	<input id = "english" onclick="change_lang()" type="image" style="width:75px;height:50px;" src="http://cdn.countryflags.com/thumbs/sweden/flag-3d-250.png"/>
+       	 	<input id = "swedish" onclick="langChange('en');langTranslateLogin();" type="image" style="width:75px;height:50px;" src="http://cdn.countryflags.com/thumbs/united-kingdom/flag-3d-250.png"/>
+        	<input id = "english" onclick="langChange('sv');langTranslateLogin();" type="image" style="width:75px;height:50px;" src="http://cdn.countryflags.com/thumbs/sweden/flag-3d-250.png"/>
    	</section>	  
 
     <main>
@@ -20,7 +20,7 @@
             
            <div class="centerFieldset">
           <fieldset>
-             <legend>Welcome to Jamaica Inn</legend>
+             <legend id="legend">Welcome to Jamaica Inn</legend>
                <p>
                  <input type="text" id="username" style="text-indent: 30px" name="fn" required="" placeholder="Username   ☜" value="">
               </p>
@@ -33,6 +33,7 @@
               </div>
 		  </form>
           <script language="javascript" type="text/javascript">
+		langTranslateLogin();
               function check(){
                 var username = document.getElementById('username');  
                 var password = document.getElementById('password');
