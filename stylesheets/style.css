@@ -426,6 +426,10 @@ main {
 	align-content: left;
 }
 
+#justaline {
+	border-bottom: 1px solid black;
+}
+
 #sumtotal2 {
 	text-align: right;
 }
