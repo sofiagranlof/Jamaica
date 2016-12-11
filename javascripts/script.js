@@ -182,7 +182,7 @@ function allinventory(responseString) {
             //here is where the HTML is changed to accomodate the beverage: 
             document.getElementById("drinktable").rows[i].cells[k].innerHTML =
             '<div class="beverage">' +
-                '<img id=' + payload[beerindex].beer_id + ' width="70px" height="150px" src=Pictures/' + payload[beerindex].beer_id + '.png draggable="true"ondragstart="drag(event)">' + '<br>' +
+                '<img id=' + payload[beerindex].beer_id + ' width="140px" height="300px" src=Pictures/' + payload[beerindex].beer_id + '.png draggable="true"ondragstart="drag(event)">' + '<br>' +
                 //'<div id="bottleCartInfoFromRow' + i + 'Cell' + k + '"">' +
                  '<div id=' + newId + '>' +
                 //'<div id="bottleCartInfoFrom' + payload[beerindex].beer_id + '>' +
