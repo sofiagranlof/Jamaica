@@ -5,12 +5,12 @@ var langdict = {
             'sv': 'V'+unescape("%E4")+'lkommen till Jamaica Inn',
         },
         'usernamelogin': {
-            'en': 'Username    â˜œ',
-            'sv': 'Anv'+unescape("%E4")+'ndarnamn â˜œ',
+            'en': 'Username   ☜',
+            'sv': 'Anv'+unescape("%E4")+'ndarnamn ☜',
         },
         'passwordlogin': {
-            'en': 'Password     â˜œ',
-            'sv': 'L'+unescape("%F6")+'senord     â˜œ',
+            'en': 'Password     ☜',
+            'sv': 'L'+unescape("%F6")+'senord     ☜',
         },
         'login': {
             'en': 'Log In',
@@ -29,8 +29,8 @@ var langdict = {
             'sv': 'Administrat'+unescape("%F6")+'r',
         },
         'logout': {
-            'en': 'Log Out âŒ« ',
-            'sv': 'Logga Ut âŒ« ',
+            'en': 'Log Out ⌫ ',
+            'sv': 'Logga Ut ⌫ ',
         },
         'beverage': {
             'en': 'Beverage',
