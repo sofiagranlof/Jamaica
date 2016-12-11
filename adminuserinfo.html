@@ -6,18 +6,18 @@
     <meta charset="utf-8" />
     <link href="stylesheets/style.css" rel="stylesheet">
     <script type="text/javascript" src="javascripts/jquery-3.1.1.js"></script>
-    
+    <script src="javascripts/language.js"></script>
     
 </head>
 <body>
     <header>
         <nav>
             <ul class="grandparent">
-                <li><a href="" class="current">User Info</a></li>
-                <li><a href="adminuserbalances.html" >User Balances</a></li>
-                <li><a href="admindrinks.html">Edit Beverages</a></li>
-                <li><a href="index.html">Buy Beverages</a></li>
-		<li><a href="login.html" class="logoffbutton">Log out ⌫ </a></li>    
+                <li><a id="userinfoid" href="" class="current">User Info</a></li>
+                <li><a id="userbalid" href="adminuserbalances.html" >User Balances</a></li>
+                <li><a id="editbevid" href="admindrinks.html">Edit Beverages</a></li>
+                <li><a id="buyid" href="index.html">Buy Beverages</a></li>
+		<li><a id="logoutid" href="login.html" class="logoffbutton">Log out ⌫ </a></li>    
 		<li></li>
             </ul>
         </nav>
@@ -45,10 +45,10 @@
     <section id="usersSection">
         <table id="usersTable" data-panelid="JJJJJ">
             <tr>
-                <th>First Name </th>
-                <th>Last Name</th>
-                <th>email</th>
-                <th>phone</th>
+                <th id="FirstName">First Name </th>
+                <th id="LastName">Last Name</th>
+                <th id="Email">email</th>
+                <th id="Phone">phone</th>
                 <th id="EditUser">Edit</th>
             </tr>
         </table>
@@ -59,7 +59,7 @@
     <script src="javascripts/api.js"></script>
     <!--<script>loadUserInfo();</script>--> 
     <script>loadUserInfo();</script>
-    <script></script>
+    <script>langTranslateAdminUserInfo();</script>
     <script src="javascripts/jQueryScript.js"></script>
 
 </body>
