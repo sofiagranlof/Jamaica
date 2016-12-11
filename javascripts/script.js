@@ -358,6 +358,11 @@ function loadAllDrinks() {
     api.fetchDrinks(getAllDrinks);
 }
 
+function loadUserEdit() {
+    var api = new APIConnect();
+    api.fetchUserEdit();
+}
+
 //History: This function is loaded from history page
 function loadPurchasesGet() {
     var api = new APIConnect();
