@@ -213,7 +213,7 @@ function allinventory(responseString) {
 
 
 //(view history?) PURCHASES USER 
-/*
+
 function purchases(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
@@ -228,6 +228,7 @@ function purchases(responseString) {
     }
 }
 
+/*
 //(admin) purchasesAllAdmin/*
 function getAllUsers(responseString) {
     var json = JSON.parse(responseString);
