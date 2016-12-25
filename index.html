@@ -20,8 +20,13 @@
 				<li><a id="buyid" href="index.html" class="current">Buy Beverage</a></li>
 				<li><a id="historyid" href="history.html">View History</a></li>
 				<li class="hide" id="admin"><a id="adminid" href="adminuserinfo.html">Admin Options</a></li>
+                <li>
+       	 	      <input id = "swedish" onclick="langChange('en');langTranslateIndex();" type="image" style="width:40px;height:25px;" src="http://cdn.countryflags.com/thumbs/united-kingdom/flag-3d-250.png"></li>
+                <li>
+        	      <input id = "english" onclick="langChange('sv');langTranslateIndex();" type="image" style="width:40px;height:25px;" src="http://cdn.countryflags.com/thumbs/sweden/flag-3d-250.png"/></li>
 				<li><a id="logoutid" href="#" class="logoffbutton" onclick="logout();">Log out ⌫ </a></li>
 			</ul>
+            
 		</nav>
 	</header>
     	 <div id="beverageWrapper">
@@ -58,17 +63,15 @@
                         <td id = "sumTotal"></td>
                     </tr>
                 </table>
-		<div id="bottomCart">
+		          <div id="bottomCart">
                     <button id="buyButton">Buy</button>
                     <button id="abortButton">Clear</button>
-                </div>
+                  </div>
             </div>
         <div class="block">
             <asp:Image ID="Image9" AlternateText="10/12/2008 - Retina" Width=81 Height=84 ImageUrl="~/uploads/ImageModifier/retina.jpg" runat=server />
         </div>
- </div>
-	
-	
+        </div>
     <script type="text/javascript" src="javascripts/script.js"></script>
     <script language="javascript" type="text/javascript">
 	       langTranslateIndex(); 
@@ -79,14 +82,7 @@
                 window.location = 'login.html';
             }
     </script>
-    <script>
-    //This is for the admin button
-        if(1==1){
-            //var btn = document.getElementById("adminl");
-            //btn.style.display = "block";
-        }
-    </script>
-        <script src="javascripts/jQueryScript.js"></script>
+    <script src="javascripts/jQueryScript.js"></script>
     </body>
 </html>
 
