@@ -29,25 +29,29 @@ function capitalise(txt) {
 /**********************/
 /* Here starts the API*/
 /**********************/
+ 
+function getUsername(){
+    var username = window.localStorage.getItem("username");
+    return username
+}
 
-//WHERE IS THIS FUNCTION USED? 
-function usr(responseString){
+function credit(responseString){
     var json = JSON.parse(responseString)
     var payload = json.payload
     
-    var uname = payload[0].first_name
     var ucredit = payload[0].assets
-    document.getElementById("uname").innerHTML = 'Username: ' + uname; 
    
     var intcred = parseInt(ucredit);
     if(intcred<0){
        ucredit = '<font color=red>' + ucredit + '</font>'
     }
-    
-    document.getElementById("ucredit").innerHTML = 'Credit: ' + ucredit;
+    document.getElementById("idbalance").innerHTML = ucredit;
 }
 
-
+function getCredit(){
+    var api = new APIConnect();    
+    api.fetchIOU(credit);
+}
 
 //(admin) USERALL this function loads all the users into rows and creates an edit button for each user (the button is not connected to the row here but in the jQuery document) 
 function usrall(responseString) {
@@ -159,17 +163,17 @@ function allinventory(responseString) {
 
     //these two loops create a matrix whose cells contain an img and info about each beer. 
     //for every row
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < 5; i++) {
         var row = document.getElementById("drinktable").insertRow(i);
 
         //for every cell: 
-        for (var k = 0; k < 3; k++) {
+        for (var k = 0; k < 4; k++) {
             row.insertCell();
 
             //Hämta beer. Laddning fr[n databasen h'nder h''r
             var beerindex = 0;
             for (beerindex = 0; beerindex < payload.length; beerindex++) {
-                if (payload[beerindex].beer_id == beerlist[i * 3 + k]) {
+                if (payload[beerindex].beer_id == beerlist[i * 4 + k]) {
                     break;
                 }
             }
@@ -347,6 +351,7 @@ function loadInventory() {
     var api = new APIConnect();
     api.fetchInventoryGet(allinventory);
 }
+
 
 //Admin->UserInfo
 function loadUserInfo() {
