@@ -73,12 +73,20 @@ var langdict = {
             'sv': unescape("%C4")+'ndra',
         },
         'username': {
-            'en': 'User Name',
+            'en': 'Username',
             'sv': 'Anv'+unescape("%E4")+'ndarnamn',
+        },
+       'username2': {
+            'en': 'Username: ',
+            'sv': 'Anv'+unescape("%E4")+'ndarnamn: ',
         },
         'balance': {
             'en': 'Balance',
             'sv': 'Saldo',
+	   },
+        'balance2': {
+            'en': 'Balance: ',
+            'sv': 'Saldo: ',
 	   },
         'email': {
             'en': 'E-Mail',
@@ -185,7 +193,9 @@ function langTranslateIndex(){
 	langChangeText("CartName", "name" );
 	langChangeText("CartPrice", "price" );
 	langChangeText("myH", "yourcart" );
-     langChangeText("sumtotal2", "sumtotal" );
+    langChangeText("sumtotal2", "sumtotal" );
+    langChangeText("idbalance2", "balance2");
+    langChangeText("idusername2", "username2")
      
 }
 
