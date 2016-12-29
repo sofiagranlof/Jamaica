@@ -36,10 +36,10 @@ $(document).ready(function () {
 
 
         //the edit user info is only generated when the user presses the button
-        $(document).on('click', '#' + j + 'editUserButton', function () {
+         $(document).on('click', '#' + j + 'editUserButton', function () {
             
             var rowNumberString = $(this).attr('id');
-            var rowNumberInt = parseInt(rowNumberString) + 1;
+            var rowNumberInt = parseInt(rowNumberString) + 2;
             
             //alert("The user " + firstName + " " + lastName + " will be changed using a jQuery form");
 
@@ -72,6 +72,8 @@ $(document).ready(function () {
                 }
             }
             
+           if(document.getElementById("usersTable").rows[0].cells[0].innerHTML == "First Name"){
+            
             //get the userInfo used to generate HTML below
             var firstName = document.getElementById("usersTable").rows[rowNumberInt].cells[0].innerHTML;
             var lastName = document.getElementById("usersTable").rows[rowNumberInt].cells[1].innerHTML;
@@ -82,7 +84,7 @@ $(document).ready(function () {
             // var spawnModalHTML = $('<button id = "editUserButton">Edit</button>');
             var spawnModalHTML = $(
                 '<div id="jQueryForm">' +
-                    '<h3>Edit ' + firstName + ' ' + lastName + ' (Fields with entered text will update when Save Edits pressed)' + '</h3>' +
+                    '<h3>Edit ' + firstName + ' ' + lastName + '</h3>' +
                     '<label for="firstName" class="ui-hidden-accessible">First Name:</label>' +
                     '<input type="text" name="user" id="firstName" placeholder="' + firstName + '">' +
                     '<label for="lastName" class="ui-hidden-accessible">Second Name:</label>' +
@@ -92,8 +94,57 @@ $(document).ready(function () {
                     '<label for="phone" class="ui-hidden-accessible">Phone:</label>' + 
                     '<input type="text" name="phone" id="phone" placeholder="' + phone + '">' +
                     '<input type="submit" data-inline="true" value="Save Edits">' + 
-                '</div>');
-            $(spawnModalHTML).appendTo(document.getElementById("myForm"));
+                '</div(>');
+           }
+               else{
+                   if(document.getElementById("usersTable").rows[0].cells[0].innerHTML == "User Name"){
+                      
+                     //get the userInfo used to generate HTML below
+            var username = document.getElementById("usersTable").rows[rowNumberInt].cells[0].innerHTML;
+            var firstname = document.getElementById("usersTable").rows[rowNumberInt].cells[1].innerHTML;
+            var lastname = document.getElementById("usersTable").rows[rowNumberInt].cells[2].innerHTML;
+            var balance = document.getElementById("usersTable").rows[rowNumberInt].cells[3].innerHTML;
+
+
+            // var spawnModalHTML = $('<button id = "editUserButton">Edit</button>');
+            var spawnModalHTML = $(
+                '<div id="jQueryForm">' +
+                    '<h3>Edit the Balace of ' + firstname + ' ' + lastname + '</h3>' +
+                    '<label for="balance" class="ui-hidden-accessible">Balance:</label>' + 
+                    '<input type="text" name="balance" id="balance" placeholder="' + balance + '">' +
+                    '<input type="submit" data-inline="true" value="Save Edits">' + 
+                '</div(>');
+                   }
+                 else{
+                    if(document.getElementById("usersTable").rows[0].cells[0].innerHTML == "Name"){
+                        
+            //get the userInfo used to generate HTML below
+            var name = document.getElementById("usersTable").rows[rowNumberInt].cells[0].innerHTML;
+            var sblp = document.getElementById("usersTable").rows[rowNumberInt].cells[1].innerHTML;
+            var pubp = document.getElementById("usersTable").rows[rowNumberInt].cells[2].innerHTML;
+            var count = document.getElementById("usersTable").rows[rowNumberInt].cells[3].innerHTML;
+            var price = document.getElementById("usersTable").rows[rowNumberInt].cells[4].innerHTML;
+
+
+            // var spawnModalHTML = $('<button id = "editUserButton">Edit</button>');
+            var spawnModalHTML = $(
+                '<div id="jQueryForm">' +
+                    '<h3>Edit ' + name  + '</h3>' +
+                   '<label for="sblp" class="ui-hidden-accessible">SBL Price:</label>' +
+                    '<input type="text" name="sblp" id="sblp" placeholder="' + sblp + '">' +
+                    '<label for="pubp" class="ui-hidden-accessible">Pub price:</label>' + 
+                    '<input type="text" name="pubp" id="pubp" placeholder="' + pubp + '">' + 
+                    '<label for="price" class="ui-hidden-accessible">Price:</label>' + 
+                    '<input type="text" name="price" id="price" placeholder="' + price + '">' +
+                    '<input type="submit" data-inline="true" value="Save Edits">' + 
+                '</div(>');
+                               
+                    }            
+                  }  
+                }
+               
+            
+  $(spawnModalHTML).appendTo(document.getElementById("myForm"));
 
 
         }); //.on('click', '#' + j + 'editUserButton'
