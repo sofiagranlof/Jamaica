@@ -454,6 +454,18 @@ main {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.adduserbutton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 2px;
+    cursor: pointer;
+}
 
 .modal-content {
     background-color: #fefefe;
