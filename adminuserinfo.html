@@ -46,6 +46,38 @@
     </div>
 	
     <section id="usersSection">
+        <section id="adduserform">          
+          <form action="addnewuser();">
+              <fieldset>
+              Username:
+              <input type="text" name="username" value="">
+              Password:
+              <input type="text" name="password" value="">
+                First Name:
+              <input type="text" name="firstname" value="">
+                Last Name:
+              <input type="text" name="lastname" value="">
+                email:
+              <input type="text" name="email" value="">
+                Phone:
+              <input type="text" name="phone" value="">
+            <button class="adduserbutton">+ Add User</button>
+                </fieldset>
+            </form> 
+             <script language="javascript" type="text/javascript">
+                 
+              function addnewuser(){
+                var username = document.getElementById('username');  
+                var password = document.getElementById('password');
+                var firstname = document.getElementById('firstname');
+                var lastname = document.getElementById('lastname');
+                var email = document.getElementById('email');
+                var phone = document.getElementById('phone');
+
+            }
+          </script>
+        </section>
+
         <table id="usersTable" data-panelid="JJJJJ">
             <tr>
                 <th id="FirstName">First Name </th>
