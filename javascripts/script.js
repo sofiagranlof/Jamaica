@@ -1,5 +1,5 @@
 
-
+var beverageCounterM = 0;
 
 //where is this function used can someone make a comment here? 
 function capitalise(txt) {
@@ -402,14 +402,15 @@ function dropcopy(ev) {
 
     var idOfBottle = ev.dataTransfer.getData("Text");
     
-   
-
-
     if ($("#cart").find('#row' + idOfBottle).length > 0) {
         alert("Press the + button to add one more of the same kind!");
     }
+    else if (beverageCounterM > 7) {
+        alert("A maximum of 8 beverage types can be added in the cart"); 
+    }
 
     else {
+	beverageCounterM += 1;
         //create div inside cart with idOfBottle
         var myDiv = document.createElement("div");
         myDiv.id = idOfBottle;
@@ -467,6 +468,7 @@ function dropcopy(ev) {
 
 $(document).off().on('click', '.plusButton', function () {
 
+    beverageCounterM += 1;
     //in order to get to the correct counter we must first step out of the plus button and then into the innerHTML of the parent id cell[1]
     var idOfRow = $(this).parent().parent().attr('id');
     var thisRow = $(this).parent().parent(); //parent is td, grandparent is row
@@ -509,7 +511,9 @@ $(document).on('click', '.minusButton', function () {
 
     //either  remove row or decrease counter
     if (countAsInt < 2) {
-
+	
+	beverageCounterM -= 1;
+	    
         //SUM TOTALS:
         //we have to find the price of 1 bottle, not all of them. 
         //var totalPriceAsString = $(thisRow).find("#priceCell").html();
@@ -550,6 +554,20 @@ $(document).on('click', '.minusButton', function () {
 $(document).on('click', '#buyButton', function () {
     alert("You have bought!");
     console.log("SDfasdfdsf");
+});
+
+$(document).on('click', '#abortButton', function () {
+    $("#cart tr").slice(1, -2).remove();
+
+    //the sum total needs resetting 
+    var totalPriceAsString = $("#cart").find("#sumTotal").html();
+    totalPriceAsFloat = parseFloat(totalPriceAsString);
+    console.log("adsfadsf: " + totalPriceAsFloat);
+    updateTotal(-totalPriceAsFloat, "lastRow");
+
+    beverageCounterM = 0; 
+    
+
 });
 
 function updateTotal(thePrice, rowIdNoHash) {
