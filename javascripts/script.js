@@ -1,13 +1,6 @@
 
 
 
-//johans changes 29 November: 
-// - All functions called from the HTML files have been moved to the end of this file 
-// - "usrall" worked on for admin page (not finished) 
-// - jQuery document.ready moved to separate file because script.js needs to come before the HTML files calls to the script (e.g. loadUserInfo()), and jQueryScript needs to come after. async / defer didn't work on Opera for some reason
-
-
-
 //where is this function used can someone make a comment here? 
 function capitalise(txt) {
 		var arr = txt.split('_'),
@@ -413,7 +406,7 @@ function dropcopy(ev) {
 
 
     if ($("#cart").find('#row' + idOfBottle).length > 0) {
-        alert("Item already exists... BRO ");
+        alert("Press the + button to add one more of the same kind!");
     }
 
     else {
@@ -430,24 +423,8 @@ function dropcopy(ev) {
         var theText = myDiv.innerHTML;
         theText = theText.replace(/[0-9]/g, '');
         theText = theText.replace('Price', '');
+	theText = theText.replace('kr', ''); 
         theText = theText.replace(/<br>/g, '');
-
-
-        ////picture perhaps at left side in table
-
-        //var original = document.getElementById(idOfBottle);
-        //console.log("idOfBottle: " + idOfBottle);
-
-        //thePic.setAttribute("height", "40");
-        //thePic.setAttribute("width", "40");
-        //thePic.src = original.src;
-        //ev.target.appendChild(copyimg);
-        //ev.target.appendChild(myDiv);
-
-        //create new HTML
-        //if ($('#193002').length) {
-
-        //}
 
         //create handle to table and
         //calculate number of existing rows: 
@@ -455,8 +432,6 @@ function dropcopy(ev) {
         var rowCount = table.rows.length - 2; //there are two hard coded rows at the end. 
         var rowId = "row" + idOfBottle;//rowCount +
         //var rowId = idOfBottle;
-
-
 
         //find where the end of the table is
         var row = document.createElement("tr");
@@ -474,7 +449,7 @@ function dropcopy(ev) {
         document.getElementById(rowId).cells[1].innerHTML = 1; //default this is a string
         document.getElementById(rowId).cells[2].innerHTML = "";
         document.getElementById(rowId).cells[3].innerHTML = "";
-        document.getElementById(rowId).cells[4].innerHTML = thePrice;
+        document.getElementById(rowId).cells[4].innerHTML = thePrice + " kr"; 
 
         //build buttons
         var plusButton = $('<button class ="plusButton" id ="plusUnique">+</button>');
@@ -518,7 +493,8 @@ $(document).off().on('click', '.plusButton', function () {
     countAsInt += 1; 
     $(thisRow).find("#counterCell").html(countAsInt); 
     
-    
+    //add " kr" to price
+    $(thisRow).find("#priceCell").append(" kr"); 
 
 });
 
@@ -565,6 +541,9 @@ $(document).on('click', '.minusButton', function () {
         //update counter
         countAsInt -= 1;
         $(thisRow).find("#counterCell").html(countAsInt);
+	    
+	//add " kr" to price
+        $(thisRow).find("#priceCell").append(" kr");
     }
 });
 
@@ -580,14 +559,11 @@ function updateTotal(thePrice, rowIdNoHash) {
     oldPriceAsFloat = parseFloat(oldPriceAsFloat);
     oldPriceAsFloat = oldPriceAsFloat || 0;
 
-    //priceAdded = parseFloat(priceAdded);
-    //var newPrice = oldPriceAsFloat + priceAdded; 
-    //
-
     var newPrice = oldPriceAsFloat + thePrice;
     newPrice = Math.round(newPrice * 100) / 100;
     document.getElementById(rowIdNoHash).cells[4].innerHTML = newPrice;
-
+	
+    $("#sumTotal").append(" kr"); 
     //the last row will also always be updated
     //document.getElementById("lastRow").cells[4].innerHTML 
 
