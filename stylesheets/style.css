@@ -94,9 +94,10 @@ img {
     display: inline;
     margin-left: auto;
     margin-right: auto;
+	width: 100%;
 }
 #usersTable {
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -273,7 +274,7 @@ main {
 		background-color: #00b36b;
 	}
 }
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 900px) {
 	body{
 	}
 	#locations div {
@@ -489,7 +490,7 @@ main {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 840px){
+@media only screen and (max-width: 900px){
     #beverageWrapper {
         border: 5px solid white; 
 	   position: absolute; 
@@ -500,7 +501,8 @@ main {
 
     }
     body {
-        max-width: 840px;
+        max-width: 900px;
+	     width: 100%;
     }
     header {
         font-size: 25px;
@@ -527,4 +529,10 @@ main {
 		font-size: 40px;
 		top: 20px;
 		left:30px;
+	}
+	@media only screen and (max-width: 450px){
+        #usersTable{
+            font-size: 15px;
+            width: 100%;
+		}
 	}
