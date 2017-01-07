@@ -38,6 +38,18 @@ body {
 
 }
 
+#adduserform {
+	font-size: 1em;
+	font-weight: bold;
+	width: 200px;
+  	margin:left;
+  	left:10px;
+}
+
+#adduserform input {
+	font-size: 1.2em;
+}
+
 header {
 	height: 3em;
 }
