@@ -17,6 +17,15 @@ body {
 	color: #ff5500;
 }
 
+#currentuser {
+	position: absolute;
+	width: 200px;
+	right: 0px;
+	font-size: 1em;
+	font-family: serif;
+	font-style: italic;
+}
+
 
 header {
 	height: 3em;
