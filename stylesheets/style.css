@@ -26,6 +26,17 @@ body {
 	font-style: italic;
 }
 
+#scrollimage {
+	position: fixed;
+	left: 0px;
+	bottom: 300px;
+	height: 297px;
+	width: 40px;
+	background-image: url(../Pictures/scrollbarimage.png);
+	background-repeat: no-repeat;
+	
+
+}
 
 header {
 	height: 3em;
