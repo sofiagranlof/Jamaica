@@ -31,15 +31,14 @@
 
     </div>-->
 	
-
-    
+   
 	 <!-- Trigger/Open The Modal -->
     <!--<button id="myBtn">Open Modal</button>-->
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <form method="post" id="myForm" action="demoform.asp">
+            <form id="myForm" onsubmit="editChanges()">
                 <span class="close">×</span>
                 <!-- a user unique 10 row jQueryScript will load in here at document.ready-->
             </form>
@@ -48,47 +47,32 @@
 	
     <section id="usersSection">
         <section id="adduserform">          
-          <form action="addnewuser();">
+          <form onsubmit="editChanges();">
               <fieldset>
-		 <center> Add a User: </center>
-		      
+		Add a User:
+		      <br>
               Username:
-	        <br>
               <input type="text" name="username" value="">
-		<br>      
               Password:
               <input type="text" name="password" value="">
-		<br>
                 First Name:
-		<br>      
               <input type="text" name="firstname" value="">
-		<br>      
                 Last Name:
-		<br>      
               <input type="text" name="lastname" value="">
-		<br>      
-                Email:
-		<br>      
+                email:
               <input type="text" name="email" value="">
-		<br>       
                 Phone:
-		<br>       
               <input type="text" name="phone" value="">
-		 <br>      
-            	<center>
-            		<button class="adduserbutton">+ Add User</button>
-                </center>
+            <button class="adduserbutton">+ Add User</button>
                 </fieldset>
             </form> 
-             <script language="javascript" type="text/javascript">
+            
+             <script>
                  
               function addnewuser(){
-                var username = document.getElementById('username');  
-                var password = document.getElementById('password');
-                var firstname = document.getElementById('firstname');
-                var lastname = document.getElementById('lastname');
-                var email = document.getElementById('email');
-                var phone = document.getElementById('phone');
+                var username = document.getElementById('username'); 
+                  
+                alert("The user " + username + " has been successfully added!");}
 
             }
           </script>
@@ -104,6 +88,13 @@
             </tr>
         </table>
     </section>
+    
+        <script>
+    
+        function editChanges(){
+            alert("Your changes have been successfully saved!");}
+
+    </script>
     
     <!-- Placed at bottom because it didnt work otherwise -->
     <script src="javascripts/script.js"></script>
