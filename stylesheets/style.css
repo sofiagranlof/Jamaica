@@ -416,8 +416,9 @@ main {
 
 #buyButton {			
 	color: black;
-	font-size: 18px;
+	font-size: 24px;
 	border: none;
+    	padding: 8px; 
 	border-radius: 4px;
 	background-color: lightgreen;
 	opacity: 0.9;
