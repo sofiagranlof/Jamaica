@@ -12,6 +12,10 @@ var langdict = {
             'en': 'Password     ☜',
             'sv': 'L'+unescape("%F6")+'senord     ☜',
         },
+         'password': {
+             'en': 'Password:',
+             'sv': 'L'+unescape("%F6")+'senord:', 
+         },
         'login': {
             'en': 'Log In',
             'sv': 'Logga In',
@@ -19,6 +23,10 @@ var langdict = {
 	   'buy': {
             'en': 'Buy Beverage',
             'sv': 'K'+unescape("%F6")+'p Dryck',
+        },
+        'buy1': {
+            'en': 'Buy',
+            'sv': 'Köp',
         },
         'history': {
             'en': 'View History',
@@ -60,13 +68,25 @@ var langdict = {
             'en': 'First Name',
             'sv': 'F'+unescape("%F6")+'rnamn',
         },
+        'firstname1': {
+            'en': 'First Name:',
+            'sv': 'F'+unescape("%F6")+'rnamn:',
+        },
         'lastname': {
             'en': 'Last Name',
             'sv': 'Efternamn',
         },
+        'lastname1': {
+            'en': 'Last Name:',
+            'sv': 'Efternamn:',
+        },
         'phone': {
             'en': 'Phone',
             'sv': 'Telefon',
+        },
+        'phone2': {
+            'en': 'Phone:',
+            'sv': 'Telefon:',
         },
         'edit': {
             'en': 'Edit',
@@ -91,6 +111,10 @@ var langdict = {
         'email': {
             'en': 'E-Mail',
             'sv': 'E-Post',
+        },
+        'email2': {
+            'en': 'E-Mail: ',
+            'sv': 'E-Post: ',
         },
         'name': {
             'en': 'Name',
@@ -119,7 +143,24 @@ var langdict = {
         'sumtotal': {
             'en': 'TOTAL:',
             'sv': 'SUMMA:',
-        }
+        },
+        'clear': {
+            'en': 'Clear',
+            'sv': 'Rensa',
+        },
+        'adduser': { 
+            'en': 'Add new user:',
+            'sv': 'Lägg till ny användare:',
+        },
+    'adduser2': { 
+            'en': ' + Add user',
+            'sv': ' + Lägg till användare',
+        },
+    'instock': {
+        'en': 'Selected',
+        'sv': 'Valda',
+    }
+    
 
 };
 
@@ -195,7 +236,9 @@ function langTranslateIndex(){
 	langChangeText("myH", "yourcart" );
     langChangeText("sumtotal2", "sumtotal" );
     langChangeText("idbalance2", "balance2");
-    langChangeText("idusername2", "username2")
+    langChangeText("idusername2", "username2");
+    langChangeText( "buyButton","buy1");
+    langChangeText( "abortButton","clear");
      
 }
 
@@ -208,15 +251,24 @@ function langTranslateHistory(){
 	langChangeText("dateid", "date" );
 }
 
-//Translate admin user page
+//Translate admin user index page
 function langTranslateAdminUserInfo(){
      langTranslateAdminHeader();
 	
-	langChangeText("FirstName", "firstname" );
+	langChangeText("FirstName2", "firstname" );
 	langChangeText("LastName", "lastname" );
 	langChangeText("Email", "email" );
-	langChangeText("Phone", "phone" );
+	langChangeText("Phone2", "phone2" );
 	langChangeText("EditUser", "edit" );
+    langChangeText("adduser", "adduser");
+    
+    langChangeText("Usernameadd", "username2");
+    langChangeText("Firstname1", "firstname1");
+    langChangeText("Lastname1", "lastname1");
+    
+    langChangeText("password2", "password");
+    langChangeText("email2", "email2");
+    langChangeText("buttonadduser", "adduser2");
 }
 
 //Translate admin balance page
@@ -238,7 +290,9 @@ function langTranslateAdminDrinks(){
 	langChangeText("PubPrice", "pubprice" );
 	langChangeText("Price", "price" );
 	langChangeText("Count", "count" );
-	langChangeText("EditBalance", "edit" );
+	langChangeText("EditDrink", "edit" );
+    langChangeText("Name", "name" );
+    langChangeText("StockStatus", "instock" );
 }
 
 
