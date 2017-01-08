@@ -256,10 +256,10 @@ img {
 
 
 nav a.current {
-	background-color: white ; /*Mathias2*/
-	opacity: 0.9; /*Mathias2*/
-	border-radius: 5px; /*Mathias2*/
-	color: forestgreen; /*Mathias2*/
+	background-color: white ; 
+	opacity: 0.9; 
+	border-radius: 5px; 
+	color: forestgreen; 
 }
 nav a {
 	/*front-size: 2em;
@@ -269,9 +269,6 @@ nav a {
 }
 
 #login fieldset { 
-	/*border: 1px solid black;	
-	border-radius: .3em;
-	padding: .5em;*/
     	margin: 0 auto;
 }
 
