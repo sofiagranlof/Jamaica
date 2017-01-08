@@ -126,7 +126,8 @@ img {
     display: inline;
     margin-left: auto;
     margin-right: auto;
-	width: 100%;
+    width: 100%;
+    border: none;
 }
 #usersTable {
     width: 100%;
