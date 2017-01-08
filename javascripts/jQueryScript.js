@@ -72,7 +72,9 @@ $(document).ready(function () {
                 }
             }
             
-           if(document.getElementById("usersTable").rows[0].cells[0].innerHTML == "First Name"){
+           var first = document.getElementById("usersTable").rows[0].cells[0].innerHTML; 
+             
+           if(first == "First Name" || first == "Förnamn"){
             
             //get the userInfo used to generate HTML below
             var firstName = document.getElementById("usersTable").rows[rowNumberInt].cells[0].innerHTML;
@@ -97,7 +99,7 @@ $(document).ready(function () {
                 '</div(>');
            }
                else{
-                   if(document.getElementById("usersTable").rows[0].cells[0].innerHTML == "User Name"){
+             if(first == "Username" || first == "Användarnamn"){
                       
                      //get the userInfo used to generate HTML below
             var username = document.getElementById("usersTable").rows[rowNumberInt].cells[0].innerHTML;
@@ -115,8 +117,7 @@ $(document).ready(function () {
                     '<input type="submit" data-inline="true" value="Save Edits">' + 
                 '</div(>');
                    }
-                 else{
-                    if(document.getElementById("usersTable").rows[0].cells[0].innerHTML == "Name"){
+                 else{  if(first == "Name" || first =="Namn"){
                         
             //get the userInfo used to generate HTML below
             var name = document.getElementById("usersTable").rows[rowNumberInt].cells[0].innerHTML;
@@ -136,6 +137,8 @@ $(document).ready(function () {
                     '<input type="text" name="pubp" id="pubp" placeholder="' + pubp + '">' + 
                     '<label for="price" class="ui-hidden-accessible">Price:</label>' + 
                     '<input type="text" name="price" id="price" placeholder="' + price + '">' +
+                    '<label for="instock" class="ui-hidden-accessible">In Stock:</label>' + 
+                    '<input type="text" name="pubp" id="pubp" placeholder= "Max 10 units">' +
                     '<input type="submit" data-inline="true" value="Save Edits">' + 
                 '</div(>');
                                
