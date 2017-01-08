@@ -269,9 +269,9 @@ nav a {
 }
 
 #login fieldset { 
-	border: 1px solid black;	
+	/*border: 1px solid black;	
 	border-radius: .3em;
-	padding: .5em;
+	padding: .5em;*/
     	margin: 0 auto;
 }
 
