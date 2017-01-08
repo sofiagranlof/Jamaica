@@ -265,6 +265,7 @@ function langTranslateAdminUserInfo(){
     langChangeText("Usernameadd", "username2");
     langChangeText("Firstname1", "firstname1");
     langChangeText("Lastname1", "lastname1");
+	langChangeText("Phone", "phone" );
     
     langChangeText("password2", "password");
     langChangeText("email2", "email2");
