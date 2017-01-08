@@ -184,11 +184,18 @@ function allinventory(responseString) {
                 //'<div id="bottleCartInfoFrom' + payload[beerindex].beer_id + '>' +
                     payload[beerindex].namn + '<br>' +
                     payload[beerindex].namn2 + '<br>' +
-                    payload[beerindex].price + ' kr'
-                '</div>' +
+                    payload[beerindex].price + ' kr' + 
+		 '</div>' + 
+                '<div id="counter' + newId + '"></div>' +
             '</div>'; 
             //"<img src=" + payload[i*5+k].beer_id + ".png><br>" + //payload[i*5+k].namn + "<br> Price: " + payload[i*5+k].price 
-
+		
+	    //initialize or update locally stored quantity
+            var localStoreQuantity = localStorage.getItem('counter' + newId);
+            if (localStoreQuantity === null) {
+                localStoreQuantity = "10";
+            }
+            localStorage.setItem('counter' + newId, localStoreQuantity);
         }
     }
 
@@ -378,6 +385,8 @@ function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
+
+
 function dropcopy(ev) {
 
 
@@ -387,6 +396,21 @@ function dropcopy(ev) {
     ev.preventDefault(); //makes it droppable
 
     var idOfBottle = ev.dataTransfer.getData("Text");
+
+
+    //****
+    //var loadedMat = localStorage.getItem("localStoreArray");
+    //console.log("loadedMat: " + loadedMat);
+
+    
+    //var myNewArray = loadedMat.split(',');
+    //console.log("myNewArray: " + myNewArray);
+    //var first = myNewArray[0];
+    //console.log("first: " + first);
+    
+    var thisQuantity = localStorage.getItem('counter' + idOfBottle + 'info'); 
+    //console.log("thisQuantity: " + thisQuantity);
+
     
     if ($("#cart").find('#row' + idOfBottle).length > 0) {
         alert("Press the + button to add one more of the same kind!");
@@ -394,9 +418,19 @@ function dropcopy(ev) {
     else if (beverageCounterM > 7) {
         alert("A maximum of 8 beverage types can be added in the cart"); 
     }
+        //****
+    else if (thisQuantity < 1) {
+        alert("there are not enough of this beverage type left in the machine! "); 
+    }
+        //****
+    else { //the beverage will be put into cart
 
-    else {
-	beverageCounterM += 1;
+        thisQuantity--; 
+
+        localStorage.setItem('counter' + idOfBottle + 'info', thisQuantity);
+
+
+	    beverageCounterM += 1;
         //create div inside cart with idOfBottle
         var myDiv = document.createElement("div");
         myDiv.id = idOfBottle;
@@ -410,7 +444,7 @@ function dropcopy(ev) {
         var theText = myDiv.innerHTML;
         theText = theText.replace(/[0-9]/g, '');
         theText = theText.replace('Price', '');
-	theText = theText.replace('kr', ''); 
+	    theText = theText.replace('kr', ''); 
         theText = theText.replace(/<br>/g, '');
 
         //create handle to table and
@@ -452,15 +486,41 @@ function dropcopy(ev) {
 
 }
 
-$(document).off().on('click', '.plusButton', function () {
+$(document).on('click', '.plusButton', function () {
 
-    beverageCounterM += 1;
+    //beverageCounterM += 1;
+
+
     //in order to get to the correct counter we must first step out of the plus button and then into the innerHTML of the parent id cell[1]
     var idOfRow = $(this).parent().parent().attr('id');
     var thisRow = $(this).parent().parent(); //parent is td, grandparent is row
     var countAsString = $(thisRow).find("#counterCell").html();
     var countAsInt = parseInt(countAsString); 
     
+
+    //****
+    var idNRow = idOfRow.replace("row", "");
+    var thisQuantity = localStorage.getItem('counter' + idNRow + 'info');
+    //console.log("thisQuantity: " + thisQuantity);
+
+    if (thisQuantity < 1) {
+        alert("there are not enough of this beverage type left in the machine! "); 
+    }
+    else { //put one bottle in cart
+
+        var priceOneBottle = priceOneBottleFromBottles(idOfRow);
+        updateTotal(priceOneBottle, idOfRow);
+        updateTotal(priceOneBottle, "lastRow");
+
+        //update counter
+        countAsInt += 1;
+        $(thisRow).find("#counterCell").html(countAsInt);
+
+        //add " kr" to price
+        $(thisRow).find("#priceCell").append(" kr");
+        thisQuantity--;
+        localStorage.setItem('counter' + idNRow + 'info', thisQuantity);
+    }
   
     //e.stopImmediatePropagation(); //without this the button clicks twice
 
@@ -471,18 +531,10 @@ $(document).off().on('click', '.plusButton', function () {
     //var priceOneBottle = totalPriceAsFloat / countAsInt;
     //console.log("priceOneBottle: " + priceOneBottle);
 
-    var priceOneBottle = priceOneBottleFromBottles(idOfRow); 
-
-
-    updateTotal(priceOneBottle, idOfRow);
-    updateTotal(priceOneBottle, "lastRow");
-
-    //update counter
-    countAsInt += 1; 
-    $(thisRow).find("#counterCell").html(countAsInt); 
     
-    //add " kr" to price
-    $(thisRow).find("#priceCell").append(" kr"); 
+
+
+    
 
 });
 
@@ -495,10 +547,18 @@ $(document).on('click', '.minusButton', function () {
     var countAsString = $(thisRow).find("#counterCell").html();
     var countAsInt = parseInt(countAsString);
 
+
+    var idNRow = idOfRow.replace("row", "");
+    var thisQuantity = localStorage.getItem('counter' + idNRow + 'info');
+    //console.log("thisQuantityB: " + thisQuantity);
+    thisQuantity++;
+    localStorage.setItem('counter' + idNRow + 'info', thisQuantity)
+    //console.log("thisQuantityA: " + thisQuantity);
+
     //either  remove row or decrease counter
     if (countAsInt < 2) {
 	
-	beverageCounterM -= 1;
+	    beverageCounterM -= 1;
 	    
         //SUM TOTALS:
         //we have to find the price of 1 bottle, not all of them. 
@@ -515,7 +575,7 @@ $(document).on('click', '.minusButton', function () {
         $('#' + idOfRow + '').remove(); 
     }
     else {
-
+        //beverageCounterM -= 1;
         //update counterCell
         $(thisRow).find("#counterCell").html(countAsInt);
 
@@ -524,7 +584,7 @@ $(document).on('click', '.minusButton', function () {
         var totalPriceAsString = $(thisRow).find("#priceCell").html();
         totalPriceAsFloat = parseFloat(totalPriceAsString);
         var priceOneBottle = totalPriceAsFloat / countAsInt;
-        console.log("priceOneBottle: " + priceOneBottle);
+        //console.log("priceOneBottle: " + priceOneBottle);
         updateTotal(-priceOneBottle, idOfRow);
         updateTotal(-priceOneBottle, "lastRow");
 
@@ -537,9 +597,9 @@ $(document).on('click', '.minusButton', function () {
     }
 });
 
+//****
 $(document).on('click', '#buyButton', function () {
-    alert("You have bought!");
-    console.log("SDfasdfdsf");
+    alert("You have bought and will now be logged out!");
 });
 
 $(document).on('click', '#abortButton', function () {
@@ -548,7 +608,7 @@ $(document).on('click', '#abortButton', function () {
     //the sum total needs resetting 
     var totalPriceAsString = $("#cart").find("#sumTotal").html();
     totalPriceAsFloat = parseFloat(totalPriceAsString);
-    console.log("adsfadsf: " + totalPriceAsFloat);
+    //console.log("adsfadsf: " + totalPriceAsFloat);
     updateTotal(-totalPriceAsFloat, "lastRow");
 
     beverageCounterM = 0; 
@@ -567,7 +627,8 @@ function updateTotal(thePrice, rowIdNoHash) {
     newPrice = Math.round(newPrice * 100) / 100;
     document.getElementById(rowIdNoHash).cells[4].innerHTML = newPrice;
 	
-    $("#sumTotal").append(" kr"); 
+    $("#sumTotal").append(" kr");
+
     //the last row will also always be updated
     //document.getElementById("lastRow").cells[4].innerHTML 
 
@@ -586,7 +647,7 @@ function priceOneBottleFromBottles(rowIdNoHash) {
     var totalPriceAsString = $('#' + rowIdNoHash + '').find("#priceCell").html();
     totalPriceAsFloat = parseFloat(totalPriceAsString);
     var priceOneBottle = totalPriceAsFloat / numberOfBottlesAsInt;
-    console.log("priceOneBottle: " + priceOneBottle);
+    //console.log("priceOneBottle: " + priceOneBottle);
     return priceOneBottle;
 }
 
@@ -601,3 +662,8 @@ function dropped(ev) {
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
 }
+
+
+
+
+
