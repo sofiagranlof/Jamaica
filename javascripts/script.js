@@ -293,6 +293,7 @@ function getAllDrinks(responseString) {
         row.insertCell();
         row.insertCell();
         row.insertCell();
+        row.insertCell();
 
         document.getElementById("usersTable").rows[i + 1].cells[0].innerHTML = (payload[i].namn + " " +     payload[i].namn2);
         document.getElementById("usersTable").rows[i + 1].cells[1].innerHTML = payload[i].sbl_price;
@@ -300,26 +301,16 @@ function getAllDrinks(responseString) {
         document.getElementById("usersTable").rows[i + 1].cells[3].innerHTML = payload[i].count;
         document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = payload[i].price;
         document.getElementById("usersTable").rows[i + 1].cells[5].innerHTML = "";
+        
 
         //this creates a button in the rows cell 4 with the index as id
         var myEditButton = $('<button id =' + i + 'editUserButton' + '>' + langGetText('edit') + '</button>');
         $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[5]);
+        
+        var mycheckbox = $('<input type="checkbox" name="checkinstock">')
+         $(mycheckbox).appendTo(document.getElementById("usersTable").rows[i + 1].cells[6]);
     }
 }
-
-
-//CAN THIS BE REMOVED? 
-//PURCHASES USER 
-function fn() {
-    var api = new APIConnect();
-    //btn = document.getElementById('yourbuttonID');
-
-    api.setUser('benfau', 'benfau');
-    //btn.addEventListener('click', function() { loadUsers(api) });
-
-    //api.fetchIOU(usr);   
-}
-
 
 ////WHERE IS THIS FUNCTION USED? 
 function docLoaded(fn) {
