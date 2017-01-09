@@ -49,10 +49,16 @@ function getCredit(){
 function usrall(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
+    var rowcount=0;
+
     for (var i = 0; i < payload.length; i++) {
 
+    if(payload[i].first_name != "" && payload[i].first_name != "undefined"){
+        
+        
         var myN = i.toString();
-        var row = document.getElementById("usersTable").insertRow(i + 1);
+        
+        var row = document.getElementById("usersTable").insertRow(rowcount + 1);
 
         row.insertCell();
         row.insertCell();
@@ -60,18 +66,20 @@ function usrall(responseString) {
         row.insertCell();
         row.insertCell();
 
-        document.getElementById("usersTable").rows[i + 1].cells[0].innerHTML = payload[i].first_name;
-        document.getElementById("usersTable").rows[i + 1].cells[1].innerHTML = payload[i].last_name;
-        document.getElementById("usersTable").rows[i + 1].cells[2].innerHTML = payload[i].email;
-        document.getElementById("usersTable").rows[i + 1].cells[3].innerHTML = payload[i].phone;
-        document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = "";
+        document.getElementById("usersTable").rows[rowcount + 1].cells[0].innerHTML = payload[i].first_name;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[1].innerHTML = payload[i].last_name;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[2].innerHTML = payload[i].email;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[3].innerHTML = payload[i].phone;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[4].innerHTML = "";
 
         //this creates a button in the rows cell 4 with the index as id
-        var myEditButton = $('<button id =' + i + 'editUserButton' + '>' + langGetText('edit') + '</button>');
-        $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[4]);
+        var myEditButton = $('<button id =' + rowcount + 'editUserButton' + '>' + langGetText('edit') + '</button>');
+        $(myEditButton).appendTo(document.getElementById("usersTable").rows[rowcount + 1].cells[4]);
+        
+        rowcount++;
     }
-
-        //The button connection to the row can perhaps be moved here. 
+        
+    }
     
 	
     ////TEMP THIS IS A POPUP WINDOW FOR TESTING
@@ -258,10 +266,13 @@ function getAllUsers(responseString) {
 function getAllBalances(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
+    var rowcount=0;
     for (var i = 0; i < payload.length; i++) {
+        
+        if(payload[i].username != "" && payload[i].username != "undefined"){
 
         var myN = i.toString();
-        var row = document.getElementById("usersTable").insertRow(i + 1);
+        var row = document.getElementById("usersTable").insertRow(rowcount + 1);
 
         row.insertCell();
         row.insertCell();
@@ -269,25 +280,32 @@ function getAllBalances(responseString) {
         row.insertCell();
         row.insertCell();
 
-        document.getElementById("usersTable").rows[i + 1].cells[0].innerHTML = payload[i].username;
-        document.getElementById("usersTable").rows[i + 1].cells[1].innerHTML = payload[i].first_name;
-        document.getElementById("usersTable").rows[i + 1].cells[2].innerHTML = payload[i].last_name;
-        document.getElementById("usersTable").rows[i + 1].cells[3].innerHTML = payload[i].assets;
-        document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = "";
+        document.getElementById("usersTable").rows[rowcount + 1].cells[0].innerHTML = payload[i].username;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[1].innerHTML = payload[i].first_name;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[2].innerHTML = payload[i].last_name;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[3].innerHTML = payload[i].assets;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[4].innerHTML = "";
 
         //this creates a button in the rows cell 4 with the index as id
-        var myEditButton = $('<button id =' + i + 'editUserButton' + '>' + langGetText('edit') + '</button>');
-        $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[4]);
+        var myEditButton = $('<button id =' + rowcount + 'editUserButton' + '>' + langGetText('edit') + '</button>');
+        $(myEditButton).appendTo(document.getElementById("usersTable").rows[rowcount + 1].cells[4]);
+        
+         rowcount++;
+    
+        }
     }
 }
 
 function getAllDrinks(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
+    var rowcount=0;
     for (var i = 0; i < payload.length; i++) {
+        
+        if((payload[i].namn+payload[i].namn2) != "" && (payload[i].namn+payload[i].namn2) != "undefined"){
 
         var myN = i.toString();
-        var row = document.getElementById("usersTable").insertRow(i + 1);
+        var row = document.getElementById("usersTable").insertRow(rowcount + 1);
 
         row.insertCell();
         row.insertCell();
@@ -297,23 +315,35 @@ function getAllDrinks(responseString) {
         row.insertCell();
         row.insertCell();
 
-        document.getElementById("usersTable").rows[i + 1].cells[0].innerHTML = (payload[i].namn + " " +     payload[i].namn2);
-        document.getElementById("usersTable").rows[i + 1].cells[1].innerHTML = payload[i].sbl_price;
-        document.getElementById("usersTable").rows[i + 1].cells[2].innerHTML = payload[i].pub_price;
-        document.getElementById("usersTable").rows[i + 1].cells[3].innerHTML = payload[i].count;
-        document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = payload[i].price;
-        document.getElementById("usersTable").rows[i + 1].cells[5].innerHTML = "";
+        document.getElementById("usersTable").rows[rowcount + 1].cells[0].innerHTML = (payload[i].namn + " " +     payload[i].namn2);
+        document.getElementById("usersTable").rows[rowcount + 1].cells[1].innerHTML = payload[i].sbl_price;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[2].innerHTML = payload[i].pub_price;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[3].innerHTML = payload[i].count;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[4].innerHTML = payload[i].price;
+        document.getElementById("usersTable").rows[rowcount + 1].cells[5].innerHTML = "";
         
 
         //this creates a button in the rows cell 4 with the index as id
-        var myEditButton = $('<button id =' + i + 'editUserButton' + '>' + langGetText('edit') + '</button>');
-        $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[5]);
+        var myEditButton = $('<button id =' + rowcount + 'editUserButton' + '>' + langGetText('edit') + '</button>');
+        $(myEditButton).appendTo(document.getElementById("usersTable").rows[rowcount + 1].cells[5]);
         
-        var mycheckbox = $('<input type="checkbox" name="checkinstock">')
-         $(mycheckbox).appendTo(document.getElementById("usersTable").rows[i + 1].cells[6]);
+        var mycheckbox = $('<input type="checkbox" id="checkinstock">')
+         $(mycheckbox).appendTo(document.getElementById("usersTable").rows[rowcount + 1].cells[6]);
+            
+            rowcount++;
+        }
     }
 }
 
+        function editChanges(){
+            alert("Your changes have been successfully saved!");
+        }
+
+       function getToForm(){
+                     
+            $("#newUButton").hide();
+            $("#adduserform").show();
+                 }
 ////WHERE IS THIS FUNCTION USED? 
 function docLoaded(fn) {
 
