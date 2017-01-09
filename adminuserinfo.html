@@ -26,11 +26,6 @@
             </ul>
         </nav>
     </header>
-
-    <!--<div id="popup">
-
-    </div>-->
-	
    
 	 <!-- Trigger/Open The Modal -->
     <!--<button id="myBtn">Open Modal</button>-->
@@ -44,13 +39,13 @@
             </form>
         </div>
     </div>
+
+	<button type="button" id="newUButton" onclick= "getToForm();">+ NEW USER</button>
 	
     <section id="usersSection">
         <section id="adduserform">          
           <form onsubmit="editChanges();">
               <fieldset>
-              <div id="adduser">Add New User: </div>
-               <br>
               <div id="Usernameadd">Username: </div> 
               <input type="text" name="username" value="">
                   
@@ -72,16 +67,6 @@
             <button id="buttonadduser" class="adduserbutton">+ Add User</button>
                 </fieldset>
             </form> 
-            
-             <script>
-                 
-              function addnewuser(){
-                var username = document.getElementById('username'); 
-                  
-                alert("The user " + username + " has been successfully added!");}
-
-            }
-          </script>
         </section>
 
         <table id="usersTable" data-panelid="JJJJJ">
@@ -94,13 +79,6 @@
             </tr>
         </table>
     </section>
-    
-        <script>
-    
-        function editChanges(){
-            alert("Your changes have been successfully saved!");}
-
-    </script>
     
     <!-- Placed at bottom because it didnt work otherwise -->
     <script src="javascripts/script.js"></script>
