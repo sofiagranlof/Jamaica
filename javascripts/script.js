@@ -82,25 +82,7 @@ function usrall(responseString) {
     }
     
 	
-    ////TEMP THIS IS A POPUP WINDOW FOR TESTING
-    ////the popup div UNDERSTAND IT
-    //var myTest = $('<p>KKKKK</p>');
-    //var myPopupDiv = $('<div id ="hhh"><p>MYDIIIIV</p></div>');
-
-
-    //var div = document.createElement('div');
-
-    //div.className = 'row';
-
-    //div.innerHTML = '<label>First Name</label>\
-    //                <input type="text" name="name" value="" />\
-    //                <input type="text" name="value" value="" />\
-    //                <label> <input type="checkbox" name="check" value="1" /> Checked? </label>\
-    //                <input type="button" value="Do edits!" onclick="removeRow(this)">';
-
-    ////popup must be present in html
-    //document.getElementById('popup').appendChild(div);
-
+   
 }
 
 //Function determand if connection is correct
@@ -178,25 +160,21 @@ function allinventory(responseString) {
                 }
             }
 
-            // document.getElementById("drinktable").rows[i].cells[k].innerHTML = responseString;
-            // break;
-
             var newId = payload[beerindex].beer_id + "info"; 
             
             //here is where the HTML is changed to accomodate the beverage: 
             document.getElementById("drinktable").rows[i].cells[k].innerHTML =
             '<div class="beverage">' +
                 '<img id=' + payload[beerindex].beer_id + ' width="140px" height="300px" src=Pictures/' + payload[beerindex].beer_id + '.png draggable="true"ondragstart="drag(event)">' + '<br>' +
-                //'<div id="bottleCartInfoFromRow' + i + 'Cell' + k + '"">' +
+               
                  '<div id=' + newId + '>' +
-                //'<div id="bottleCartInfoFrom' + payload[beerindex].beer_id + '>' +
                     payload[beerindex].namn + '<br>' +
                     payload[beerindex].namn2 + '<br>' +
                     payload[beerindex].price + ' kr' + 
 		 '</div>' + 
                 '<div id="counter' + newId + '"></div>' +
             '</div>'; 
-            //"<img src=" + payload[i*5+k].beer_id + ".png><br>" + //payload[i*5+k].namn + "<br> Price: " + payload[i*5+k].price 
+            
 		
 	    //initialize or update locally stored quantity
             var localStoreQuantity = localStorage.getItem('counter' + newId);
@@ -207,23 +185,10 @@ function allinventory(responseString) {
         }
     }
 
-    //WHERE IS THIS USED? 
-    /*for (var i = 0; i < 4; i++){
-        var row = document.getElementById("drinktable").insertRow(i);
-        for (var k = 0; k<5; k++){
-            row.insertCell();
-            document.getElementById("drinktable").rows[i].cells[k].innerHTML =
-                '<div class="aBeverage"><img id=' + payload[i*5+k].beer_id + ' width="100px" height="100px"src=' + payload[i*5+k].beer_id + '.png draggable="true"ondragstart="drag(event)"><br> Price: ' + payload[i*5+k].price + '</div>'
-                    
-                    
-                //"<img src=" + payload[i*5+k].beer_id + ".png><br>" + //payload[i*5+k].namn + "<br> Price: " + payload[i*5+k].price 
-                    
-        }
-    */
 }
 
 
-//(view history?) PURCHASES USER 
+//(View history) PURCHASES USER 
 
 function purchases(responseString) {
     var json = JSON.parse(responseString);
@@ -239,29 +204,6 @@ function purchases(responseString) {
     }
 }
 
-/*
-//(admin) purchasesAllAdmin/*
-function getAllUsers(responseString) {
-    var json = JSON.parse(responseString);
-    var payload = json.payload;
-    for (var i = 0; i < payload.length; i++) {
-        var myN = i.toString();
-        var row = document.getElementById("usersTable").insertRow(i + 1);
-        row.insertCell();
-        row.insertCell();
-        row.insertCell();
-        row.insertCell();
-        row.insertCell();
-        document.getElementById("usersTable").rows[i + 1].cells[0].innerHTML = payload[i].first_name;
-        document.getElementById("usersTable").rows[i + 1].cells[1].innerHTML = payload[i].last_name;
-        document.getElementById("usersTable").rows[i + 1].cells[2].innerHTML = payload[i].email;
-        document.getElementById("usersTable").rows[i + 1].cells[3].innerHTML = payload[i].phone;
-        document.getElementById("usersTable").rows[i + 1].cells[4].innerHTML = "";
-        //this creates a button in the rows cell 4 with the index as id
-        var myEditButton = $('<button id =' + i + 'editUserButton' + '>Edit</button>');
-        $(myEditButton).appendTo(document.getElementById("usersTable").rows[i + 1].cells[4]);
-    }
-}*/
 
 function getAllBalances(responseString) {
     var json = JSON.parse(responseString);
@@ -344,7 +286,7 @@ function getAllDrinks(responseString) {
             $("#newUButton").hide();
             $("#adduserform").show();
                  }
-////WHERE IS THIS FUNCTION USED? 
+
 function docLoaded(fn) {
 
     if (document.readyState !== 'loading') {
@@ -408,39 +350,18 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-//JOHANS LATEST CHANGE
-//JOHANS LATEST CHANGE
-
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
 
-
 function dropcopy(ev) {
 
-
     $(".beverageArea").css('background', 'none'); 
-    //$("#beverageArea").css('display', 'block');
-
     ev.preventDefault(); //makes it droppable
-
     var idOfBottle = ev.dataTransfer.getData("Text");
-
-
-    //****
-    //var loadedMat = localStorage.getItem("localStoreArray");
-    //console.log("loadedMat: " + loadedMat);
-
-    
-    //var myNewArray = loadedMat.split(',');
-    //console.log("myNewArray: " + myNewArray);
-    //var first = myNewArray[0];
-    //console.log("first: " + first);
     
     var thisQuantity = localStorage.getItem('counter' + idOfBottle + 'info'); 
-    //console.log("thisQuantity: " + thisQuantity);
-
     
     if ($("#cart").find('#row' + idOfBottle).length > 0) {
         alert("Press the + button to add one more of the same kind!");
@@ -518,8 +439,6 @@ function dropcopy(ev) {
 
 $(document).on('click', '.plusButton', function () {
 
-    //beverageCounterM += 1;
-
 
     //in order to get to the correct counter we must first step out of the plus button and then into the innerHTML of the parent id cell[1]
     var idOfRow = $(this).parent().parent().attr('id');
@@ -531,7 +450,6 @@ $(document).on('click', '.plusButton', function () {
     //****
     var idNRow = idOfRow.replace("row", "");
     var thisQuantity = localStorage.getItem('counter' + idNRow + 'info');
-    //console.log("thisQuantity: " + thisQuantity);
 
     if (thisQuantity < 1) {
         alert("there are not enough of this beverage type left in the machine! "); 
@@ -551,20 +469,6 @@ $(document).on('click', '.plusButton', function () {
         thisQuantity--;
         localStorage.setItem('counter' + idNRow + 'info', thisQuantity);
     }
-  
-    //e.stopImmediatePropagation(); //without this the button clicks twice
-
-    //SUM TOTALS:
-    //we have to find the price of 1 bottle, not all of them. 
-    //var totalPriceAsString = $(thisRow).find("#priceCell").html();
-    //totalPriceAsFloat = parseFloat(totalPriceAsString);
-    //var priceOneBottle = totalPriceAsFloat / countAsInt;
-    //console.log("priceOneBottle: " + priceOneBottle);
-
-    
-
-
-    
 
 });
 
@@ -573,35 +477,21 @@ $(document).on('click', '.minusButton', function () {
     //in order to get to the correct counter we must first step out of the plus button and then into the innerHTML of the parent id cell[1]
     var idOfRow = $(this).parent().parent().attr('id');
     var thisRow = $(this).parent().parent(); //parent is td, grandparent is row
-    //$(thisRow).css('background', 'red');
     var countAsString = $(thisRow).find("#counterCell").html();
     var countAsInt = parseInt(countAsString);
 
 
     var idNRow = idOfRow.replace("row", "");
     var thisQuantity = localStorage.getItem('counter' + idNRow + 'info');
-    //console.log("thisQuantityB: " + thisQuantity);
     thisQuantity++;
     localStorage.setItem('counter' + idNRow + 'info', thisQuantity)
-    //console.log("thisQuantityA: " + thisQuantity);
-
+	
     //either  remove row or decrease counter
     if (countAsInt < 2) {
-	
-	    beverageCounterM -= 1;
 	    
-        //SUM TOTALS:
-        //we have to find the price of 1 bottle, not all of them. 
-        //var totalPriceAsString = $(thisRow).find("#priceCell").html();
-        //totalPriceAsFloat = parseFloat(totalPriceAsString);
-        //var priceOneBottle = totalPriceAsFloat / countAsInt;
-
+	beverageCounterM -= 1;
         var priceOneBottle = priceOneBottleFromBottles(idOfRow);
-
-
         updateTotal(-priceOneBottle, "lastRow");
-
-
         $('#' + idOfRow + '').remove(); 
     }
     else {
@@ -614,7 +504,6 @@ $(document).on('click', '.minusButton', function () {
         var totalPriceAsString = $(thisRow).find("#priceCell").html();
         totalPriceAsFloat = parseFloat(totalPriceAsString);
         var priceOneBottle = totalPriceAsFloat / countAsInt;
-        //console.log("priceOneBottle: " + priceOneBottle);
         updateTotal(-priceOneBottle, idOfRow);
         updateTotal(-priceOneBottle, "lastRow");
 
@@ -660,14 +549,6 @@ function updateTotal(thePrice, rowIdNoHash) {
     $("#sumTotal").append(" kr");
 
     //the last row will also always be updated
-    //document.getElementById("lastRow").cells[4].innerHTML 
-
-
-    //var lastRowString = document.getElementById("lastRow").cells[4].innerHTML;
-    //var lastRowPriceString = parseSentenceForNumber(lastRowString);
-    //lastRowPriceFloat = parseFloat(lastRowPriceString);
-    //var lastRowNewPrice = lastRowPriceFloat + thePrice;
-    //document.getElementById("lastRow").cells[4].innerHTML = lastRowNewPrice;
 }
 
 function priceOneBottleFromBottles(rowIdNoHash) {
