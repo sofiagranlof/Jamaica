@@ -27,27 +27,17 @@
         </nav>
     </header>
 
-    <!--<div id="popup">
-
-    </div>-->
-	
-
   	 <!-- Trigger/Open The Modal -->
     <!--<button id="myBtn">Open Modal</button>-->
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <form  id="myForm" onsubmit="editChanges()">
+            <form  id="myForm" onsubmit="editChanges();">
                 <span class="close">×</span>
                 <!-- a user unique 10 row jQueryScript will load in here at document.ready-->
             </form>
         </div>
-    </div>
-    
-    <div id= "myAlert" class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-        <strong>Changes Saved!</strong> The beverage has been   edited succesfully
     </div>
 	
     <section id="usersSection">
@@ -63,13 +53,6 @@
             </tr>
         </table>
     </section>
-    
-    <script>
-    
-        function editChanges(){
-            alert("Your changes have been successfully saved!");}
-
-    </script>
     
     <!-- Placed at bottom because it didnt work otherwise -->
     <script src="javascripts/script.js"></script>
