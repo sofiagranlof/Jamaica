@@ -74,6 +74,7 @@ body {
 #adduserform input {
 	font-size: 1.2em;
 }
+/*End*/
 
 header {
 	height: 3em;
@@ -98,6 +99,7 @@ h3 {
 	margin-bottom: .3em;
 }
 
+/*This controlls the header and navigation bar*/
 nav ul {
 
 	box-shadow: inset 0px 0px 9px 9px rgba(255,255,255,0.80);
@@ -133,13 +135,14 @@ nav ul ul li {
 	border-bottom: 1px solid #575f6a;
 	position: relative;
 }
+
 nav ul ul li a {
 	padding: 15px 40px;
 	color: #fff;
 }	
+/*END*/
 
-
-
+/*This centers the image*/
 img {
 	text-align: center; 
 }
@@ -154,12 +157,14 @@ img {
     width: 100%;
     border: none;
 }
+/*This is for the table w/ the userinfo on the userinfo page */
 #usersTable {
     width: 100%;
     border-collapse: collapse;    
     margin-top: 5px;
 }
 
+/*The table on the User info, user balance and edit beverages page*/
 #usersSection th {
     font-size: 15px
     text-align: left;
@@ -170,6 +175,7 @@ img {
     margin-top: 10px;
     margin-left: 10px;
 }
+/*End*/
 
 #checkinstock{
     width: 25px;
@@ -177,6 +183,7 @@ img {
     margin-left: 25px;
 }
 
+/*This is for the buttons on the userinfo page */
 #usersTable button {
 
 	color: black;
@@ -197,6 +204,7 @@ img {
 	margin-left: 50px;
 }
 
+/*This is for the view history page */
 #history table {
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -209,7 +217,9 @@ img {
     border: 1px solid black;
     text-align: left;
 }
+/*End*/
 
+/*This controlls the login page*/
 #login {
 	margin-top: 4em; 
 }
@@ -224,7 +234,6 @@ img {
     
 }
 #login input {
-	/*border-radius: .5em;*/
 	padding-left: .5em;
 	margin-bottom: .7em;
 }
@@ -238,6 +247,7 @@ img {
 	padding: .3em;
 	margin-top: .9em;
 }
+/*END*/
 
 /*Login button options*/
 .loginbutton {	
@@ -261,6 +271,7 @@ img {
   box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
+/*END*/
 
 /*Logoff button options*/
 .logoffbutton {					
@@ -274,6 +285,7 @@ img {
 	  border-radius: 5px;
 	  height: 35px;
 }
+/*END*/
 
 /*Usernameimage*/
 #username {
@@ -290,15 +302,23 @@ img {
     background-position: 5px 10px; 
     background-repeat: no-repeat;
 }
+/*END*/
 
-/*Language Option Placement*/
+/*Language Option Placement on login page*/
 #flags {
 	margin-top: 10px;
 	margin-right: 10px;
 	text-align: right;
 }
+/*END*/
 
+/*Placement of fieldset on login page*/
+#login fieldset { 
+    	margin: 0 auto;
+}
+/*END*/
 
+/*This section is for the nav bar*/
 nav a.current {
 	background-color: white ; 
 	opacity: 0.9; 
@@ -311,11 +331,6 @@ nav a {
 	padding: 0 .5em 0 .5em;
 }
 
-#login fieldset { 
-    	margin: 0 auto;
-}
-
-
 nav ul {
 	padding-top: .5em;
 	text-align: center;
@@ -323,6 +338,7 @@ nav ul {
 nav li {
 	display:inline;
 }
+/*END*/
 
 /*This is for the drop-down menu*/
 nav select {
@@ -385,7 +401,7 @@ main {
     border: 3px solid green; 
 }						
 
-
+/*This is where the beverage images and info will be placed on the index page*/
 #beverageWrapper {
 
 	text-align: left;
@@ -434,6 +450,7 @@ main {
 
 }
 
+/*The plus button in the cart*/
 .plusButton {			
 	color: black;
 	font-size: 25px;
@@ -445,6 +462,7 @@ main {
 	border-radius: 4px;
 }
 
+/*The minus button in the cart*/
 .minusButton {			
 	color: black;
 	font-size: 25px;
@@ -456,6 +474,7 @@ main {
 	height:40px;
 }
 
+/*The buy button in the cart*/
 #buyButton {			
 	color: black;
 	font-size: 24px;
@@ -467,6 +486,7 @@ main {
 	width: 60px;
 	height:40px;
 }
+/*The abort button in the cart*/
 #abortButton {			
 	color: black;
 	font-size: 18px;
@@ -490,6 +510,7 @@ main {
   
 }
 
+/*The table in the cart*/
 #cart {
         font-size: 20px;
         text-decoration: bold;
@@ -504,10 +525,11 @@ main {
 	align-content: left;
 }
 
+/*A extra line in the table in the cart*/
 #justaline {
 	border-bottom: 1px solid black;
 }
-
+/*Alignment of the total sum in the cart*/
 #sumtotal2 {
 	text-align: right;
 }
@@ -567,6 +589,7 @@ main {
     cursor: pointer;
 }
 
+/*The section below is for the responsive design (a smartphone screen with a with of less than 900px)*/
 @media only screen and (max-width: 900px){
 	
     #currentuser {
