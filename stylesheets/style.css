@@ -394,7 +394,7 @@ main {
   	top: 100px;
    	left: 30px;
 	height: 950px; 
-	width: 770px; 
+	width: 600px; 
   	background-color: transparent;
    	color:  #333333;
 
@@ -584,9 +584,9 @@ main {
         
 	   position: absolute; 
         top: 100px;
-        left: 50px;
+        left: 30px;
 	   height: 950px; 
-	   width: 770px; 
+	   width: 600px; 
 
     }
     body {
