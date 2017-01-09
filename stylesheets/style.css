@@ -589,7 +589,7 @@ main {
     cursor: pointer;
 }
 
-/*The section below is for the responsive design (a smartphone screen with a with of less than 900px)*/
+/*The section below is for the responsive design (a smartphone screen with a width of less than 900px)*/
 @media only screen and (max-width: 900px){
 	
     #currentuser {
@@ -642,6 +642,7 @@ main {
 		top: 20px;
 		left:30px;
 	}
+	/*The section below is for the responsive design (a smartphone screen with a width of less than 450px)*/
 	@media only screen and (max-width: 450px){
         #usersTable{
             font-size: 15px;
