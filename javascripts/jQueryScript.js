@@ -23,19 +23,12 @@ $(document).ready(function () {
     //});
 
     //(index) The below 3 functions are used by drag and drop
-    
-   
-
-
+  
     //this loop dynamically creates edit buttons for the loaded user rows and HTML for the beverages
     //after this loop is finished each row will have this jQuery code that will wait for events:  BEWARE j will always be 80 if alert put here use rowNumberInt instead
     for (var j = 0; j < 80; j++) { //perhaps payload.length
 
-        
-
-
-
-        //the edit user info is only generated when the user presses the button
+       //the edit user info is only generated when the user presses the button
          $(document).on('click', '#' + j + 'editUserButton', function () {
             
             var rowNumberString = $(this).attr('id');
