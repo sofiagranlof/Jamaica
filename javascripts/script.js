@@ -14,19 +14,22 @@ function capitalise(txt) {
 		return capTxt;
 }
 
-
-//the document ready jQuery that was here has been moved to a separate jquery document. 
-
-
 /**********************/
 /* Here starts the API*/
 /**********************/
  
+/*
+*This function gets the username from the user from the localstorage and returns it as a variable.
+*
+*/
 function getUsername(){
     var username = window.localStorage.getItem("username");
     return username
 }
 
+/*
+*This function gets the credit from the user and displays it on top of the cart in color red if the user is in debt.
+*/
 function credit(responseString){
     var json = JSON.parse(responseString)
     var payload = json.payload
@@ -40,12 +43,17 @@ function credit(responseString){
     document.getElementById("idbalance").innerHTML = ucredit;
 }
 
+/*
+*This function connects with the API to get the credit from the user in the db. It's used in the function credit();
+*/
 function getCredit(){
     var api = new APIConnect();    
     api.fetchIOU(credit);
 }
 
-//(admin) USERALL this function loads all the users into rows and creates an edit button for each user (the button is not connected to the row here but in the jQuery document) 
+/*(admin)
+*This function loads all the users into rows and creates an edit button for each user (the button is not connected to the row here but in the jQuery document).
+*/
 function usrall(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
@@ -85,7 +93,9 @@ function usrall(responseString) {
    
 }
 
-//Function determand if connection is correct
+/*
+*Function that determines if connection is correct
+*/
 function login(responseString){
     var json = JSON.parse(responseString)
    
@@ -101,7 +111,9 @@ function login(responseString){
    
 }
 
-//Function that puts the username and password in the local storage
+/*
+*Function that puts the username and password in the local storage
+*/
 function testlogin(username, password){
     var api = new APIConnect();
     api.setUser(username, password);
@@ -112,7 +124,9 @@ function testlogin(username, password){
     api.fetchIOU(login); 
 }
 
-//Function that checks if it is an admin
+/*
+*Function that checks if the user is an admin
+*/
 function admin(responseString){
     var json = JSON.parse(responseString)
     if(json.type == 'user_get_all'){
@@ -126,14 +140,18 @@ function admin(responseString){
    
 }
 
+/*
+*This function connects with the API to fetch the user from the db.
+*/
 function testadmin(){
     var api = new APIConnect();    
     api.fetchUsers(admin);
 }
 
-
-
-//(index) INVENTORY 
+/*(index) INVENTORY 
+*This function gets 20 beers and creates rows with images in index.html
+*TODO: Localstore the drinks dynamicaly for later manipulation in admin page admindrinks.html
+*/
 function allinventory(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
@@ -187,9 +205,9 @@ function allinventory(responseString) {
 
 }
 
-
-//(View history) PURCHASES USER 
-
+/*(admin)
+*This function gets all the purchases history from the user in history.html
+*/
 function purchases(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
@@ -204,7 +222,9 @@ function purchases(responseString) {
     }
 }
 
-
+/*
+*This function gets all balances and puts them into a table for display, it also adds an edit button that will give acces to a form.
+*/
 function getAllBalances(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
@@ -238,6 +258,11 @@ function getAllBalances(responseString) {
     }
 }
 
+/*
+*This function gets all the drinks and puts them into a table for display, it also adds the edit button that will give access to a form and a checkbox to select it if we want it to be in storage.
+*It also gets rid of "empty" and "undefined" drinks from the db when displaying.
+*TODO: Restrict the checkboxes to 20 drinks (3 non-alcoholic, 17 alcoholic)
+*/
 function getAllDrinks(responseString) {
     var json = JSON.parse(responseString);
     var payload = json.payload;
@@ -277,15 +302,21 @@ function getAllDrinks(responseString) {
     }
 }
 
-        function editChanges(){
+/*
+*This function shows an alert anytime the user makes a change in the table elements.
+*/
+function editChanges(){
             alert("Your changes have been successfully saved!");
         }
 
-       function getToForm(){
+/*
+*This function hides he button that gives access to the form to add a new user and sows the form to the user so he/she can fill the fields and add the new user.
+*/
+function getToForm(){
                      
-            $("#newUButton").hide();
-            $("#adduserform").show();
-                 }
+$("#newUButton").hide();
+$("#adduserform").show();
+}
 
 function docLoaded(fn) {
 
@@ -516,7 +547,6 @@ $(document).on('click', '.minusButton', function () {
     }
 });
 
-//****
 $(document).on('click', '#buyButton', function () {
     alert("You have bought and will now be logged out!");
 });
