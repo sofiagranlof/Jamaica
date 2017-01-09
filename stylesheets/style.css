@@ -17,6 +17,7 @@ body {
 	color: #ff5500;
 }
 
+/*This controlls the User and Balance, shown in the upper right corner*/
 #currentuser {
 	position: absolute;
 	width: 250px;
@@ -26,10 +27,11 @@ body {
 	font-style: italic;
 }
 
+/*This controlls the scrollbarimage, shown in the index and history page*/
 #scrollimage {
 	position: fixed;
 	left: 0px;
-	bottom: 300px;
+	bottom: 250px;
 	height: 297px;
 	width: 40px;
 	background-image: url(../Pictures/scrollbarimage.png);
@@ -38,6 +40,7 @@ body {
 
 }
 
+/*This controlls the add a user form*/
 #adduserform {
 	font-size: 1em;
 	font-weight: bold;
@@ -47,11 +50,12 @@ body {
 	display: none
 }
 
+/*This controlls the border of the fieldset of add a user form*/
 #adduserform fieldset{
     border-color: lawngreen;
 }
 
-
+/*This controlls the add a user button*/
 #newUButton{
       padding: 20px 20px;
       margin-bottom: 3px
@@ -205,8 +209,6 @@ img {
     border: 1px solid black;
     text-align: left;
 }
-/*#history table tr:nth-child(even) {text-decoration: underline;} 
-#history table tr:nth-child(odd) {background-color: white;}*/
 
 #login {
 	margin-top: 4em; 
@@ -304,8 +306,7 @@ nav a.current {
 	color: forestgreen; 
 }
 nav a {
-	/*front-size: 2em;
-	color: #dddddd;*/
+
 	text-decoration: none;
 	padding: 0 .5em 0 .5em;
 }
@@ -391,7 +392,7 @@ main {
 	display: block; 
 	position: absolute; 
   	top: 100px;
-   	left: 50px;
+   	left: 30px;
 	height: 950px; 
 	width: 770px; 
   	background-color: transparent;
@@ -413,8 +414,8 @@ main {
 /*This is the wrapper for the whole cart-----------------------------------------------*/
 .beverageArea {
 	text-align: right; 
-   	height: 550px;
-	width: 400px; 
+   	height: 565px;
+	width: 360px; 
 	margin: 5px; 
 	
  	border: 2px solid black; 
