@@ -21,8 +21,9 @@ body {
 #currentuser {
 	position: absolute;
 	width: 250px;
-	right: 0px;
-	font-size: 1.2em;
+	right: 105px;
+	top: 24px;
+	font-size: 1em;
 	font-family: serif;
 	font-style: italic;
 }
